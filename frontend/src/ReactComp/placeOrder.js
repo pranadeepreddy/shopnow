@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import Cookies from 'universal-cookie';
 
 class PlaceOrder extends Component{
     
@@ -15,9 +16,10 @@ class PlaceOrder extends Component{
         product_data : [],
         
     }
+
+    cookies = new Cookies();
     
     componentWillMount(){
-        console.log(this.props.productdata_url);
         if(!(this.props.match.params.cart === undefined)){
             this.saveCount(this.props.match.params.cart);
         }
@@ -25,7 +27,7 @@ class PlaceOrder extends Component{
         fetch(this.props.productdata_url + this.props.match.params.id + '/',{
             method:'GET',
             headers: new Headers({
-                 'Authentication': `JWT ${this.props.token}`,
+                 'Authentication': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
             })
         .then(response => {
@@ -35,18 +37,16 @@ class PlaceOrder extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                      console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }    
         })
         .then(responseJson => {
-            console.log(responseJson);
             this.savePrice(responseJson[0].price);
             this.setState({ product_data : responseJson});
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
     }
 
 
@@ -139,8 +139,9 @@ class PlaceOrder extends Component{
         formData.append("state", this.state.state);
         formData.append("pin", this.state.pin);
         formData.append("landmark", this.state.landmark);
+        
         formData.append("product", this.props.match.params.id);
-        formData.append("customer", parseInt(this.props.id));
+        formData.append("customer", this.cookies.get('shopnow_id'));
         
         formData.append("count", this.state.count);
         formData.append("cost", this.state.count * this.state.price);
@@ -149,7 +150,7 @@ class PlaceOrder extends Component{
         fetch(this.props.placeorder_url,{
             method:'POST',
             headers: new Headers({
-                 'Authorization': `JWT ${this.props.token}`,
+                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                  //'Accept': 'application/json',
                }),
             body : formData,
@@ -162,7 +163,6 @@ class PlaceOrder extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                    console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }
@@ -170,7 +170,7 @@ class PlaceOrder extends Component{
         .then(responseJson => {
             this.props.history.push("/");
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
     }
 
 

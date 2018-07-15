@@ -14,7 +14,6 @@ class SignUp extends Component{
         
         let username = document.getElementById("signup_username").value;
         let password = document.getElementById("signup_password").value;
-        console.log(username,password);
         
         let body = {
                 "user": {
@@ -54,7 +53,6 @@ class SignUp extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                    console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }    
@@ -83,7 +81,7 @@ class SignUp extends Component{
                 this.props.login(responseJson.token);
             })
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
         }
 
         render(){

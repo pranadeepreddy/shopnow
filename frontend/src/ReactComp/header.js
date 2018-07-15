@@ -11,16 +11,17 @@ class HeaderComponent extends Component{
 
     cookies = new Cookies();
     
-    constructor(props){
-        super(props)
-        let token = this.cookies.get('shopnow_jwt_token');
-        if (!(typeof token === 'undefined'))
-        {
-            this.props.toggleLoggedIn();
+//    constructor(props){
+//        super(props);
+//        let token = this.cookies.get('shopnow_jwt_token');
+//        if (!(typeof token === 'undefined'))
+//        {
+//            this.props.toggleLoggedIn();
+//
+//        }
+//    }
 
-        }
-     }
-    
+
     
 
     render(){

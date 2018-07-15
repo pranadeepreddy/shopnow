@@ -29,10 +29,10 @@ import MerchantOrders from './ReactComp/merchantOrders'
 import Profile from './ReactComp/profile'
 
 class App extends Component {
-
+    
     state = {
         isLoggedIn : false,
-        
+        tokenValidity : 1 * 24 * 60 * 60 *1000,
         
         
         
@@ -68,27 +68,26 @@ class App extends Component {
         editmerchant_url : "http://127.0.0.1:8000/shopnow/editmerchant/"
     }
 
-    
+    componentWillMount(){
+        let token = this.cookies.get('shopnow_jwt_token');
+        if (!(typeof token === 'undefined'))
+        {
+            this.toggleLoggedIn();
+
+        }
+    }
 
     cookies = new Cookies();
+    
+    
 
-//    componentWillMount(){
-//        let token = this.cookies.get('shopnow_jwt_token');
-//        if (!(typeof token === 'undefined'))
-//        {
-//            this.login(token, null)
-//
-//        }
-//     }
-    
-    
+
     toggleLoggedIn = () =>{
         this.setState(prev => ({isLoggedIn : !prev.isLoggedIn}));
     }    
     
     
     login = (token) =>{
-        
         
         fetch(this.state.userDetails_url,{
             method:'GET',
@@ -126,14 +125,20 @@ class App extends Component {
     
     logout = () =>{
         
+        new Cookies().remove('shopnow_jwt_token', {path:"/"});
+        new Cookies().remove('shopnow_username', {path:"/"});
+        new Cookies().remove('shopnow_id', {path:"/"});
+        new Cookies().remove('shopnow_status', {path:"/"});
+        new Cookies().remove('shopnow_type', {path:"/"});
+//        this.cookies.remove('shopnow_jwt_token');
+//        this.cookies.remove('shopnow_username');
+//        this.cookies.remove('shopnow_id');
+//        this.cookies.remove('shopnow_status');
+//        this.cookies.remove('shopnow_type');
         this.toggleLoggedIn();
-        new Cookies().remove('shopnow_jwt_token');
-        new Cookies().remove('shopnow_username');
-        new Cookies().remove('shopnow_id');
-        new Cookies().remove('shopnow_status');
-        new Cookies().remove('shopnow_type');
         
     }
+
     
     addToCart = (evt, product_id, history) =>{
         evt.preventDefault();
@@ -165,7 +170,7 @@ class App extends Component {
         .then(responseJson => {
             history.push('/cart');
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
         
     }
     
@@ -182,7 +187,7 @@ class App extends Component {
         
     }
     
-    deleteProduct = (evt, product_id, owner_id) =>{
+    deleteProduct = (evt, product_id, owner_id, history) =>{
         if(owner_id != this.cookies.get('shopnow_id')){
             window.alert("no access");
             evt.preventDefault();
@@ -197,7 +202,8 @@ class App extends Component {
             })
             .then(response => {
                 if (response.ok) {
-                    return response.json();
+                    alert("product deleted");
+                    history.push('/');
                   } else {
                     evt.preventDefault();
                     var error = new Error(response.statusText);
@@ -206,10 +212,7 @@ class App extends Component {
                     throw error
                   }
             })
-            .then(responseJson => {
-                
-            })
-            .catch(e => {console.log (e);});
+            .catch(e => {alert(e);});
         }
         else{
             evt.preventDefault();
@@ -219,10 +222,19 @@ class App extends Component {
     }
 
     
-    changeOrderStatus = (evt, order_id, status) => {
+    changeOrderStatus = (evt, order_id, status, deliveryDate) => {
+        
         let formData = new FormData();
         
         formData.append("status" , status);
+        if(status == 2){
+            if(deliveryDate == ""){
+                alert("enter delivery date");
+                return;
+            }
+            
+            formData.append("date_delivered" , deliveryDate);
+        }
         fetch(this.state.deleteorder_url + order_id + '/',{
                 method:'PATCH',
                 headers: new Headers({
@@ -233,16 +245,15 @@ class App extends Component {
             })
             .then(response => {
                 
-                if (response.ok) {
+                if (!response.ok) {
                     console.log(response.json());
-                  } else {
                     var error = new Error(response.statusText);
                     error.response = response;
                     alert(error,response.statusText);
                     throw error
                   }
             })
-            .catch(e => {console.log (e);});
+            .catch(e => {alert(e);});
     }
     
 
@@ -273,7 +284,7 @@ class App extends Component {
                                     {...props}
                                 />
                                 :
-                                <Redirect to="/"/>
+                                <Redirect to={"/"}/>
                             }
                          />
         
@@ -384,11 +395,8 @@ class App extends Component {
                                 ?
                                 <Cart 
                                     cart_url = {this.state.cart_url} 
-                                    token={this.state.token} 
                                     deletecart_url = {this.state.deletecart_url}
                                     editcart_url = {this.state.editcart_url}
-                                    isMerchant = {(this.state.type == 1)?false:true} 
-                                    id = {this.state.id} 
                                     {...props}
                                 />
                                 :
@@ -403,9 +411,6 @@ class App extends Component {
                                 <PlaceOrder 
                                     productdata_url = {this.state.productdata_url} 
                                     placeorder_url = {this.state.placeorder_url} 
-                                    token={this.state.token} 
-                                    id = {this.state.id} 
-                                    isMerchant = {(this.state.type == 1)?false:true} 
                                     {...props}
                                 />
                                 :
@@ -420,9 +425,6 @@ class App extends Component {
                                 <PlaceOrder 
                                     productdata_url = {this.state.productdata_url} 
                                     placeorder_url = {this.state.placeorder_url} 
-                                    token={this.state.token} 
-                                    id = {this.state.id} 
-                                    isMerchant = {(this.state.type == 1)?false:true} 
                                     {...props}
                                 />
                                 :
@@ -435,11 +437,8 @@ class App extends Component {
                             render={props => this.state.isLoggedIn
                                 ?
                                 <Orders 
-                                    token={this.state.token} 
                                     orders_url = {this.state.orders_url}
                                     changeOrderStatus = {this.changeOrderStatus}
-                                    isMerchant = {(this.state.type == 1)?false:true} 
-                                    id = {this.state.id} 
                                     {...props}
                                 />
                                 :
@@ -451,11 +450,8 @@ class App extends Component {
                             render={props => this.state.isLoggedIn
                                 ?
                                 <MerchantOrders 
-                                    token={this.state.token} 
                                     merchantorders_url = {this.state.merchantorders_url}
                                     changeOrderStatus = {this.changeOrderStatus}
-                                    isMerchant = {(this.state.type == 1)?false:true} 
-                                    id = {this.state.id} 
                                     {...props}
                                 />
                                 :
@@ -468,11 +464,8 @@ class App extends Component {
                             render={props => this.state.isLoggedIn
                                 ?
                                 <Profile 
-                                    token={this.state.token} 
-                                    profile_url = {(this.state.type == 1)?this.state.customerprofile_url:this.state.merchantprofile_url}
-                                    editprofile_url = {(this.state.type == 1)?this.state.editcustomer_url:this.state.editmerchant_url}
-                                    isMerchant = {(this.state.type == 1)?false:true} 
-                                    id = {this.state.id} 
+                                    profile_url = {(this.cookies.get('shopnow_type') == 1)?this.state.customerprofile_url:this.state.merchantprofile_url}
+                                    editprofile_url = {(this.cookies.get('shopnow_type') == 1)?this.state.editcustomer_url:this.state.editmerchant_url}
                                     {...props}
                                 />
                                 :

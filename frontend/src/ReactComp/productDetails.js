@@ -28,7 +28,6 @@ class ProductDetails extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                    console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }    
@@ -37,7 +36,7 @@ class ProductDetails extends Component{
             this.setState({ result_products : responseJson});
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
      }
     
 
@@ -64,7 +63,7 @@ class ProductDetails extends Component{
                             }
                             {
                                 (this.cookies.get('shopnow_type') == 2) ?
-                                <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = "" onClick={(evt) => this.props.deleteProduct(evt, item.id, item.merchant.id)}>Delete Product</Link>
+                                <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = "" onClick={(evt) => this.props.deleteProduct(evt, item.id, item.merchant.id, this.props.history)}>Delete Product</Link>
                                 :
                                 <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = {"/" + item.id + "/placeorder"} >Buy Now</Link>
                             }

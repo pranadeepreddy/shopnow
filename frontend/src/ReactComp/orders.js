@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 
 class Orders extends Component{
@@ -9,13 +10,15 @@ class Orders extends Component{
         cancelOrder : 4,
         orders_results : [],
     }
-    
+        
+    cookies = new Cookies();
+
 
     componentWillMount(){
         fetch(this.props.orders_url,{
             method:'GET',
             headers: new Headers({
-                 'Authorization': `JWT ${this.props.token}`,
+                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
             })
         .then(response => {
@@ -25,7 +28,6 @@ class Orders extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                      console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }
@@ -34,7 +36,7 @@ class Orders extends Component{
             this.setState({ orders_results : responseJson});
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
     }
 
 
@@ -68,7 +70,7 @@ class Orders extends Component{
                                             <p>Order Id  :  {item.id}</p>
                                             <p>ordered date : {new Date(item.date_ordered).toLocaleDateString("en-US", options)}</p>
                                             {
-                                                item.date_delivered == null || item.status == 1 || item.status == 3 || item.status == 4
+                                                item.status == 1 || item.status == 3 || item.status == 4
                                                 ?
                                                     <p>delivery date : NA</p>
                                                 :

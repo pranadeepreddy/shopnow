@@ -5,27 +5,14 @@ class Login extends Component{
 
     state = {
         
-        tokenValidity : 1 * 24 * 60 * 60 *1000,
+        
     };
 
-    cookies = new Cookies();
-
-//    componentWillMount(){
-//        let token = this.cookies.get('shopnow_jwt_token');
-//        console.log(this.props.isLoggedIn,token)
-//        if (!(typeof token === 'undefined'))
-//        {
-//            this.props.login(token, this.props.history);
-//
-//        }
-//     }
-
-    
+    cookies = new Cookies();    
     
     
     submit = (e) =>{
         e.preventDefault();
-
         var form = new FormData(document.getElementById("login_password").value);
         form.append('username', document.getElementById("login_username").value);
         form.append('password', document.getElementById("login_password").value);
@@ -49,7 +36,7 @@ class Login extends Component{
             this.props.login(responseJson.token);
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
         }
 
         render(){

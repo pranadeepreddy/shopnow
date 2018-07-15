@@ -28,11 +28,10 @@ class MyProducts extends Component{
             })
         .then(response => response.json())
         .then(responseJson => {
-            console.log(responseJson)
             this.setState({ result_products : responseJson});
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
      }
     
     
@@ -42,6 +41,7 @@ class MyProducts extends Component{
 
             <div class="container">
               <div><br/></div>
+            
               <div class="row">
                 {this.state.result_products.map(item => (
                     <div class="col-sm-3">

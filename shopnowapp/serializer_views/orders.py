@@ -41,4 +41,4 @@ class MyOrders(ListAPIView):
     serializer_class = OrdersSerializer
 
     def get_queryset(self):
-        return Orders.objects.filter(product__merchant__user__username__exact = self.request.user.username).order_by('date_ordered')[::-1]
+        return Orders.objects.filter(product__merchant__user__username__exact = self.request.user.username, status = self.kwargs['status']).order_by('date_ordered')[::-1]

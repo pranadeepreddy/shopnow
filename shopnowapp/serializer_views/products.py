@@ -13,7 +13,7 @@ class Products(ListAPIView):
     serializer_class = ProductSerializer
 
     def get_queryset(self):
-        queryset = Product.objects.all().order_by('added_date')[::-1]
+        queryset = Product.objects.filter(deleted = False).order_by('added_date')[::-1]
         return queryset
 
 class ProductData(ListAPIView):
@@ -21,7 +21,7 @@ class ProductData(ListAPIView):
     serializer_class = ProductSerializer
 
     def get_queryset(self):
-        queryset = Product.objects.filter(pk=self.kwargs['pk'])
+        queryset = Product.objects.filter(pk=self.kwargs['pk']).filter(deleted = False)
         return queryset
 
 class MyProducts(ListAPIView):
@@ -29,5 +29,5 @@ class MyProducts(ListAPIView):
     serializer_class = ProductSerializer
 
     def get_queryset(self):
-        queryset = Product.objects.filter(merchant_id=self.kwargs['pk'])[::-1]
+        queryset = Product.objects.filter(merchant_id=self.kwargs['pk']).filter(deleted = False)[::-1]
         return queryset

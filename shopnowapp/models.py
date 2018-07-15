@@ -49,7 +49,7 @@ class Product(models.Model):
     description = models.CharField(max_length=512)
     specification = models.CharField(max_length=512)
     added_date = models.DateField(auto_now=True)
-
+    deleted = models.BooleanField(default=False)
 
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
 
@@ -76,7 +76,7 @@ class Orders(models.Model):
     pin = models.IntegerField()
     landmark = models.CharField(max_length=32)
     date_ordered = models.DateTimeField(auto_now=True)
-    date_delivered = models.DateTimeField(null = True,blank = True)
+    date_delivered = models.DateField(null = True,blank = True)
     count = models.IntegerField(default=1)
     cost = models.DecimalField(default=0, max_digits=10, decimal_places=2)
 

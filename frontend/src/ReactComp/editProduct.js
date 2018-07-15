@@ -31,13 +31,11 @@ class EditProduct extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                    console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }    
         })
         .then(responseJson => {
-            console.log(responseJson[0]);
             this.setState({ category : responseJson[0].category});
             this.setState({ name : responseJson[0].name});
             this.setState({ brand : responseJson[0].brand});
@@ -50,7 +48,7 @@ class EditProduct extends Component{
             this.setState({ product_id : responseJson[0].id});
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
      }
 
     saveCategory=(event)=>{
@@ -181,7 +179,6 @@ class EditProduct extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                      console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }
@@ -189,7 +186,7 @@ class EditProduct extends Component{
         .then(responseJson => {
             this.props.history.push('/product/' + this.state.product_id);
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert (e);});
     }
 
         render(){

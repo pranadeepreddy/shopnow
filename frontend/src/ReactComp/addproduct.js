@@ -53,16 +53,14 @@ class AddProduct extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                      console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }
             })
         .then(responseJson => {
-            console.log (responseJson);
             this.props.history.push("/product/" + responseJson.id);
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
     }
 
         render(){

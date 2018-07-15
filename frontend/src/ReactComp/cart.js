@@ -1,20 +1,23 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 
 class Cart extends Component{
     
     
     state = {
+        flag : 1,
         cart_results : [],
     }
     
+    cookies = new Cookies();
 
     componentWillMount(){
         fetch(this.props.cart_url,{
             method:'GET',
             headers: new Headers({
-                 'Authorization': `JWT ${this.props.token}`,
+                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
             })
         .then(response => {
@@ -24,7 +27,6 @@ class Cart extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                      console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }
@@ -33,7 +35,7 @@ class Cart extends Component{
             this.setState({ cart_results : responseJson});
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
     }
 
 
@@ -41,7 +43,7 @@ class Cart extends Component{
         fetch(this.props.deletecart_url + cart_id + '/',{
                 method:'DELETE',
                 headers: new Headers({
-                     'Authorization': `JWT ${this.props.token}`,
+                     'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                      'Content-Type': 'application/json',
                    }),
             })
@@ -56,7 +58,7 @@ class Cart extends Component{
                     throw error
                   }
             })
-            .catch(e => {console.log (e);});
+            .catch(e => {alert(e);});
     }
     
     
@@ -68,7 +70,7 @@ class Cart extends Component{
         fetch(this.props.editcart_url+ cart_id + '/',{
             method:'PATCH',
             headers: new Headers({
-                 'Authorization': `JWT ${this.props.token}`,
+                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                  'Accept': 'application/json',
                }),
             body : formData,
@@ -77,18 +79,16 @@ class Cart extends Component{
                 if (response.ok) {
                     return response.json();
                   } else {
-                    
                     var error = new Error(response.statusText);
                     error.response = response;
-                      console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }
             })
         .then(responseJson => {
-            this.setState({count});
+            this.setState(prev => ({flag : prev.flag + 1}));
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
     }
     
     incrementCart = (evt, cart_id, cur_count) =>{

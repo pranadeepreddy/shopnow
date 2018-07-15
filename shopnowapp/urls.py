@@ -48,7 +48,7 @@ urlpatterns = [
     path('placeorder/', CreateOrders.as_view(), name = 'add_order'),
     path('editorder/<int:pk>/', EditOrders.as_view(), name = 'edit_order'),
     path('deleteorder/<int:pk>/', DeleteOrders.as_view(), name = 'delete_order'),
-    path('myorders/<int:pk>/', MyOrders.as_view(), name = 'merchant_orders'),
+    path('myorders/<int:pk>/<int:status>/', MyOrders.as_view(), name = 'merchant_orders'),
 
 
 ]

@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 
 
@@ -22,6 +23,9 @@ class Profile extends Component{
 
         result_profile : [],
     };
+
+    cookies = new Cookies();
+
 
     saveName=(username)=>{
 
@@ -106,12 +110,11 @@ class Profile extends Component{
         this.setState({result_products});
     }
     
-    componentDidMount(){
-        console.log(this.props);
+    componentWillMount(){
         fetch(this.props.profile_url,{
             method:'GET',
             headers: new Headers({
-                 'Authorization': `JWT ${this.props.token}`,
+                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
             })
         .then(response => {
@@ -121,7 +124,6 @@ class Profile extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                      console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }
@@ -132,7 +134,7 @@ class Profile extends Component{
             this.saveFirstname(this.state.result_profile.user.first_name);
             this.saveLastname(this.state.result_profile.user.last_name);
             this.saveEmail(this.state.result_profile.user.email);
-            if(this.props.isMerchant){
+            if((this.cookies.get('shopnow_type') == 2)){
                 this.saveCompanyname(this.state.result_profile.company_name);
                 this.saveCompanyemail(this.state.result_profile.company_email);
                 this.saveAadharno(this.state.result_profile.aadhar_no);
@@ -145,18 +147,17 @@ class Profile extends Component{
             this.saveLandmark(this.state.result_profile.landmark);
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
      }
     
 
 
     submit = (e) =>{
-        console.log()
         e.preventDefault();
-        fetch(this.props.editprofile_url + this.props.id + '/',{
+        fetch(this.props.editprofile_url + this.cookies.get("shopnow_id") + '/',{
             method:'PATCH',
             headers: new Headers({
-                 'Authorization': `JWT ${this.props.token}`,
+                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                  'Content-Type': 'application/json',
                }),
             body: JSON.stringify({
@@ -178,43 +179,18 @@ class Profile extends Component{
             }),
             })
             .then(response => {
-                console.log(response.json());
                 if (response.ok) {
-                    return response.json();
+                    
+                    alert("profile updated");
                   } else {
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                    console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }    
             })
-        .then(responseJson => {
-            
-            var loginform = new FormData();
-            loginform.append('username', this.state.username);
-            loginform.append('password', this.state.password);
-            fetch(this.props.login_url,{
-                method:'POST',
-                body: loginform,
-                })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                      } else {
-                        
-                        var error = new Error(response.statusText);
-                        error.response = response;
-                        alert(error,response.statusText);
-                        throw error
-                      }
-            })
-            .then(responseJson => {
-                this.state.login(responseJson.token);
-            })
-        })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
         }
     
     render(){
@@ -223,7 +199,7 @@ class Profile extends Component{
                 <div class="container">
                     <br/>
                     {
-                        this.props.isMerchant
+                        (this.cookies.get('shopnow_type') == 2)
                         ?
                             <legend align='center'>Merchant Profile</legend>
                         :
@@ -262,7 +238,7 @@ class Profile extends Component{
                                                       </td>
                                                     </tr>
                                                     {
-                                                        this.props.isMerchant &&
+                                                        (this.cookies.get('shopnow_type') == 2) &&
                                                         <tr>
                                                           <th scope="row">Company Name</th>
                                                           <td>
@@ -271,7 +247,7 @@ class Profile extends Component{
                                                         </tr>
                                                     }
                                                     {
-                                                        this.props.isMerchant &&
+                                                        (this.cookies.get('shopnow_type') == 2) &&
                                                         <tr>
                                                           <th scope="row">Company Email</th>
                                                           <td>
@@ -280,7 +256,7 @@ class Profile extends Component{
                                                         </tr>
                                                         }
                                                     {
-                                                        this.props.isMerchant &&
+                                                        (this.cookies.get('shopnow_type') == 2) &&
                                                         <tr>
                                                           <th scope="row">Aadhar No</th>
                                                           <td>

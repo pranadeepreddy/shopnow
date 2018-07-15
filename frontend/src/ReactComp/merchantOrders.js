@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, button } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 
 class MerchantOrders extends Component{
@@ -11,12 +12,19 @@ class MerchantOrders extends Component{
         orders_results : [],
     }
     
+    cookies = new Cookies();
+
 
     componentWillMount(){
-        fetch(this.props.merchantorders_url + this.props.match.params.id + '/',{
+        this.getData(1);
+    }
+
+
+    getData = (status) =>{
+        fetch(this.props.merchantorders_url + this.props.match.params.id + '/' + status + "/",{
             method:'GET',
             headers: new Headers({
-                 'Authorization': `JWT ${this.props.token}`,
+                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
             })
         .then(response => {
@@ -26,7 +34,6 @@ class MerchantOrders extends Component{
                     
                     var error = new Error(response.statusText);
                     error.response = response;
-                      console.log(response.statusText);
                     alert(error,response.statusText);
                     throw error
                   }
@@ -35,18 +42,37 @@ class MerchantOrders extends Component{
             this.setState({ orders_results : responseJson});
 
         })
-        .catch(e => {console.log (e);});
+        .catch(e => {alert(e);});
     }
-
-
-    
 
     render(){
         const options = {year: 'numeric', month: 'long', day: 'numeric' };
         return(
             <div class="container">
-              <legend align='center'>  My Orders</legend>
+            <legend align='center'>  My Orders</legend>
               <div><br/></div>
+              <div Style="width:60%;margin:auto;">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item" Style="width:20%" >
+                    <button class="btn btn-outline-primary active" data-toggle="tab" onClick={() => this.getData(1)}>New Orders</button>
+                  </li>
+                  <li class="nav-item" Style="width:20%" >
+                    <button class="btn btn-outline-primary" data-toggle="tab" onClick={() => this.getData(2)}>Shipping</button>
+                  </li>
+                  <li class="nav-item" Style="width:20%" >
+                      <button class="btn btn-outline-primary" data-toggle="tab" onClick={() => this.getData(5)}>Delivered</button> 
+                  </li>
+                  <li class="nav-item" Style="width:20%" >
+                      <button class="btn btn-outline-primary" data-toggle="tab" onClick={() => this.getData(3)}>Rejected</button> 
+                  </li>
+                  <li class="nav-item" Style="width:20%" >
+                      <button class="btn btn-outline-primary" data-toggle="tab" onClick={() => this.getData(4)}>Cancelled</button> 
+                  </li>
+                </ul>
+                <br/>
+              </div>
+
+              
                 {this.state.orders_results.map(item => (
                     <div class="w3-container" align='center'>
                           <div class="w3-card-4" Style="width:80%">
@@ -62,14 +88,14 @@ class MerchantOrders extends Component{
                                             <p>Seller  :  {item.product.merchant.company_name}</p>
                                             <p>&#x20b9;{item.product.price - ((item.product.price/100) * item.product.discount)} <small class="card-subtitle text-muted"><del>&#x20b9;{item.product.price}</del>  {item.product.discount}% off </small></p>
                                             <p>Ordered items  : {item.count}</p>
-                                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target={"#demo"+item.id}  align = "center">Show Address</button>
+                                            <button type="button" class="btn btn-primary disabled" data-toggle="collapse" data-target={"#demo"+item.id}  align = "center">Show Address</button>
                                             
                                         </div> 
                                         <div class="col-sm-4">
                                             <p>Order Id  :  {item.id}</p>
                                             <p>ordered date : {new Date(item.date_ordered).toLocaleDateString("en-US", options)}</p>
                                             {
-                                                item.date_delivered == null || item.status == 1 || item.status == 3 || item.status == 4
+                                                item.status == 1 || item.status == 3 || item.status == 4
                                                 ?
                                                     <p>delivery date : NA</p>
                                                 :
@@ -90,14 +116,25 @@ class MerchantOrders extends Component{
                                             {
                                                 item.status ==1 &&
                                                     <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <h5>Expected delivery:</h5>
+                                                            <input id = {item.id} type = "date"/>
+                                                        </div>
+                                                    </div>
+                                                    
+                                            }
+                                            <br/>
+                                            {
+                                                item.status ==1 &&
+                                                    <div class="row">
                                                         <div class="col-sm-3">
-                                                            <button class = "btn btn-primary" onClick={(evt) => this.props.changeOrderStatus(evt, item.id, this.state.acceptOrder)} >Accept Order</button>
+                                                            <button class = "btn btn-primary disabled" onClick={(evt) => this.props.changeOrderStatus(evt, item.id, this.state.acceptOrder, document.getElementById(item.id).value)} >Accept Order</button>
                                                         </div>
                                                         <div class="col-sm-3">
                                                     
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <button class = "btn btn-primary" onClick={(evt) => this.props.changeOrderStatus(evt, item.id, this.state.cancelOrder)} >Reject Order</button>
+                                                            <button class = "btn btn-primary disabled" onClick={(evt) => this.props.changeOrderStatus(evt, item.id, this.state.cancelOrder)} >Reject Order</button>
                                                         </div>
                                                     </div>
                                                     
