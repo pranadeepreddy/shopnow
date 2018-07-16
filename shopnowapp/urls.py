@@ -27,7 +27,7 @@ urlpatterns = [
 
 
 
-    path('products/', Products.as_view(), name = 'products'),
+    path('products', Products.as_view(), name = 'products'),
     path('product/<int:pk>/', ProductData.as_view(), name = 'product'),
     path('myproducts/<int:pk>/', MyProducts.as_view(), name = 'merchant_products'),
 

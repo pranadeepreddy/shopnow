@@ -33,7 +33,7 @@ class App extends Component {
     state = {
         isLoggedIn : false,
         tokenValidity : 1 * 24 * 60 * 60 *1000,
-        
+        reload : false,
         
         
         
@@ -47,7 +47,7 @@ class App extends Component {
         editproduct_url : "http://127.0.0.1:8000/shopnow/editproduct/",
         deleteproduct_url : "http://127.0.0.1:8000/shopnow/deleteproduct/",
         
-        products_url : "http://127.0.0.1:8000/shopnow/products/",
+        products_url : "http://127.0.0.1:8000/shopnow/products",
         productdata_url : "http://127.0.0.1:8000/shopnow/product/",
         product_details_url : "http://127.0.0.1:8000/shopnow/productdetails/",
         myproducts_url : "http://127.0.0.1:8000/shopnow/myproducts/",
@@ -80,7 +80,9 @@ class App extends Component {
     cookies = new Cookies();
     
     
-
+    reload = () =>{
+        this.setState(prev => ({reload : !prev.reload}));
+    }
 
     toggleLoggedIn = () =>{
         this.setState(prev => ({isLoggedIn : !prev.isLoggedIn}));
@@ -256,6 +258,7 @@ class App extends Component {
             .catch(e => {alert(e);});
     }
     
+    
 
   render() {
     return (
@@ -266,12 +269,23 @@ class App extends Component {
                 <Router>
                     
                     <div>
-                        <HeaderComponent 
-                            title = "ShopNow" 
-                            isLoggedIn = {this.state.isLoggedIn} 
-                            toggleLoggedIn = {this.toggleLoggedIn}
-                            logout = {this.logout}
+
+                        <Route render ={props =>
+                                <HeaderComponent 
+                                    title = "ShopNow" 
+                                    isLoggedIn = {this.state.isLoggedIn} 
+                                    toggleLoggedIn = {this.toggleLoggedIn}
+                                    logout = {this.logout}
+                                    reload = {this.reload}
+                                    {...props}
+                                />
+                            }
                         />
+                        <div class="progress" Style="height:3px">
+                          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" Style={"width: 75%"}></div>
+                        </div>
+        
+        
                         <Route exact path="/login" 
                             render={props => 
                                 !this.state.isLoggedIn
@@ -341,6 +355,7 @@ class App extends Component {
                                     addToCart = {this.addToCart} 
                                     deleteProduct = {this.deleteProduct} 
                                     editProduct = {this.editProduct} 
+                                    search = ""
                                     {...props}
                                  />
                             }

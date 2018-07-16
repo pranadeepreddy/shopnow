@@ -5,15 +5,19 @@ from rest_framework.permissions import AllowAny
 
 from shopnowapp.serializer import *
 from shopnowapp.serializer_views.permissions import *
-
-
+from django.db.models import Q
 
 class Products(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ProductSerializer
 
+
+
     def get_queryset(self):
-        queryset = Product.objects.filter(deleted = False).order_by('added_date')[::-1]
+        if 'search' in self.request.GET:
+            queryset = Product.objects.filter(Q(name__icontains = self.request.GET['search']) | Q(brand__icontains = self.request.GET['search'])).order_by('added_date')[::-1]
+        else:
+            queryset = Product.objects.filter(deleted = False).order_by('added_date')[::-1]
         return queryset
 
 class ProductData(ListAPIView):

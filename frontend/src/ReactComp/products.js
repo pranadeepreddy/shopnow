@@ -20,7 +20,7 @@ class Products extends Component{
     }
     
     componentWillMount(){
-        fetch(this.props.products_url,{
+        fetch(this.props.products_url + this.props.location.search,{
             method:'GET',
             headers: new Headers({
                  'Authentication': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
@@ -38,12 +38,13 @@ class Products extends Component{
                   }
         })
         .then(responseJson => {
-            this.setState({ result_products : responseJson});
+            this.saveResults(responseJson);
 
         })
         .catch(e => {alert(e);});
      }
     
+
     
     render(){
 
@@ -58,7 +59,7 @@ class Products extends Component{
                             <div class="card-body">
                                 <Link to = {"/product/"+item.id} Style = "text-decoration: none;color: #000045;">
                                     <div>
-                                        <img Style="height: 200px; width: 100%; display: block;" align = "center" src={item.image} alt="Card image"/>
+                                        <img Style="height: 200px;max-width:100%; display: block;margin:auto;" src={item.image} alt="Card image"/>
 
                                             <h5 class="card-title">{item.name}</h5>
                                             <h6 class="card-subtitle text-muted">Brand  : {item.brand}</h6>

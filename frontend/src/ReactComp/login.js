@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import Cookies from 'universal-cookie';
+import { Link } from "react-router-dom";
 
 class Login extends Component{
 
@@ -58,7 +59,9 @@ class Login extends Component{
                             <button type="submit" class="btn btn-primary">Login</button>
                         </div>
                     </form>
-                    
+                    <br/>
+                    <Link class="btn btn-link" to="/customer/signup" Style="float:right">SignUp as Customer</Link>
+                    <Link class="btn btn-link" to="/merchant/signup" Style="float:right">SignUp as Merchant</Link>
                     
                 </div>
                 

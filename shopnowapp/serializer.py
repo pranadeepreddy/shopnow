@@ -160,6 +160,7 @@ class OrdersSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
 
         Product.objects.filter(pk = validated_data['product'].id).update(stock_left=F('stock_left') - validated_data['count'])
+        Cart.objects.filter(product = validated_data['product'].id, customer = validated_data['customer'].id).delete()
         return Orders.objects.create(**validated_data)
 
     def update(self, instance, validated_data):

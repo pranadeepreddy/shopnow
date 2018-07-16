@@ -91,7 +91,13 @@ class SignUp extends Component{
                 
                 <div Style="width:300px;margin:auto;">
                     <br/><br/>
-                    <legend  align = "center">SignUp</legend>
+                    {
+                        this.props.isMerchant
+                        ?
+                            <legend align='center'>Merchant SignUp</legend>
+                        :
+                            <legend align='center'>Customer SignUp</legend>
+                    }
                     <br/>
                     <form onSubmit={this.submit}>
                         <input id = "signup_username" class="form-control" type = "text" name = "username" placeholder = "username" required/>

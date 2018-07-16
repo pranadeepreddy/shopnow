@@ -22,7 +22,12 @@ class HeaderComponent extends Component{
 //    }
 
 
-    
+    search = () =>{
+        if(document.getElementById('search').value != ""){
+            this.props.history.push("/?search=" + document.getElementById('search').value);
+            //this.props.reload.bind();
+        }
+    }
 
     render(){
         const {title} = this.props
@@ -71,11 +76,9 @@ class HeaderComponent extends Component{
                             }
                           </li>
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                          <input class="form-control mr-sm-2" type="text" placeholder="Search"/>
-                          <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-
+                        <input class="form-inline my-2 my-lg-0" type="text" id="search" placeholder="Search"/>
+                        &nbsp;  
+                        <button class="btn btn-secondary my-2 my-sm-0" onClick={() => this.search()}>Search</button>
                         <div>
                               <ul class="navbar-nav mr-auto">
                               <li class="nav-item active">

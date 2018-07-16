@@ -107,11 +107,11 @@ class MerchantOrders extends Component{
                                             }
                                             <p>total : &#x20b9;{(item.product.price - ((item.product.price/100) * item.product.discount)) * item.count}</p>
                                             <p>
-                                                Status  :  {item.status ==1 && "pending"}
-                                                            {item.status ==2 && "shipping"}
-                                                            {item.status ==3 && "rejected"}
-                                                            {item.status ==4 && "cancelled"}
-                                                            {item.status ==5 && "delivered"}
+                                                Status  :  <span class="badge badge-secondary">{item.status ==1 && "pending"}</span>
+                                                            <span class="badge badge-info">{item.status ==2 && "shipping"}</span>
+                                                            <span class="badge badge-danger">{item.status ==3 && "rejected"}</span>
+                                                            <span class="badge badge-warning">{item.status ==4 && "cancelled"}</span>
+                                                            <span class="badge badge-success">{item.status ==5 && "delivered"}</span>
                                             </p>
                                             {
                                                 item.status ==1 &&

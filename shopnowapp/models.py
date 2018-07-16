@@ -48,7 +48,7 @@ class Product(models.Model):
     discount = models.IntegerField()
     description = models.CharField(max_length=512)
     specification = models.CharField(max_length=512)
-    added_date = models.DateField(auto_now=True)
+    added_date = models.DateTimeField(auto_now=True)
     deleted = models.BooleanField(default=False)
 
     merchant = models.ForeignKey(Merchant, on_delete=models.CASCADE)
