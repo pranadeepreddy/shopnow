@@ -88,7 +88,7 @@ class MerchantProfileSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'name', 'brand', 'image', 'price' ,'discount','added_date', 'stock_left', 'merchant')
+        fields = ('id', 'name', 'brand', 'image', 'price' ,'discount','added_date', 'stock_left', 'merchant', 'deleted')
 
     def to_representation(self, instance):
         data = super().to_representation(instance)

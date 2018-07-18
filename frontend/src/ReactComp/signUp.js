@@ -1,4 +1,6 @@
 import React,{Component} from 'react'
+import { Link } from "react-router-dom";
+
 
 class SignUp extends Component{
 
@@ -88,74 +90,140 @@ class SignUp extends Component{
 
             return(
                 
-                
-                <div Style="width:300px;margin:auto;">
-                    <br/><br/>
-                    {
-                        this.props.isMerchant
-                        ?
-                            <legend align='center'>Merchant SignUp</legend>
-                        :
-                            <legend align='center'>Customer SignUp</legend>
-                    }
+                <div class="container">
                     <br/>
-                    <form onSubmit={this.submit}>
-                        <input id = "signup_username" class="form-control" type = "text" name = "username" placeholder = "username" required/>
+                    <div class="w3-container" align='center'>
+                          <div class="w3-card-4" Style="width:70%">
+                              <div class="card-header" align = "center">
+                                  <h4><b>
+                                    {
+                                        this.props.isMerchant
+                                        ?
+                                            <legend align='center'>Merchant SignUp</legend>
+                                        :
+                                            <legend align='center'>Customer SignUp</legend>
+                                    }
+                                  </b></h4>
+                              </div>                                
+                                <div class="w3-container" align="left">
+                                    <div class="row">
+                                        
+                                        <div class="col-sm-12">
+                                            <br/>
+                                            <form onSubmit={this.submit}>
+                                                <table class="table table-hover">
+                                                  <tbody>
+                                                    <tr>
+                                                      <th scope="row">Username</th>
+                                                      <input id = "signup_username" class="form-control" type = "text" name = "username" placeholder = "username" required/>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Password</th>
+                                                      <input id = "signup_password" class="form-control" type = "password" name = "password" placeholder = "********" required/>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">First Name</th>
+                                                      <td>
+                                                        <input id = "signup_firstname" class="form-control" type = "text" name = "firstname" placeholder = "firstname" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Last Name</th>
+                                                      <td>
+                                                        <input id = "signup_lastname" class="form-control" type = "text" name = "lastname" placeholder = "lastname" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Email</th>
+                                                      <td>
+                                                        <input id = "signup_email" class="form-control" type = "email" name = "email" placeholder = "email" required/>
+                                                      </td>
+                                                    </tr>
+                                                    {
+                                                        this.props.isMerchant &&
+                                                        <tr>
+                                                          <th scope="row">Company Name</th>
+                                                          <td>
+                                                            <input id = "signup_companyname" class="form-control" type = "text" name = "companyname" placeholder = "companyname" required/>
+                                                          </td>
+                                                        </tr>
+                                                    }
+                                                    {
+                                                        this.props.isMerchant &&
+                                                        <tr>
+                                                          <th scope="row">Company Email</th>
+                                                          <td>
+                                                            <input id = "signup_companyemail" class="form-control" type = "email" name = "companyemail" placeholder = "companyemail" required/>
+                                                          </td>
+                                                        </tr>
+                                                        }
+                                                    {
+                                                        this.props.isMerchant &&
+                                                        <tr>
+                                                          <th scope="row">Aadhar No</th>
+                                                          <td>
+                                                            <input id = "signup_aadharno" class="form-control" type = "text" name = "aadharno" placeholder = "aadharno" required/>
+                                                          </td>
+                                                        </tr>
+                                                    }
+                                                    <tr>
+                                                      <th scope="row">House No</th>
+                                                      <td>
+                                                            <input id = "signup_houseno" class="form-control" type = "text" name = "houseno" placeholder = "houseno" required/>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Street</th>
+                                                      <td>
+                                                            <input id = "signup_street" class="form-control" type = "text" name = "street" placeholder = "street" required/>
+                                                      </td>
+                                                    </tr>        
+                                                    <tr>
+                                                      <th scope="row">City</th>
+                                                      <td>
+                                                            <input id = "signup_city" class="form-control" type = "text" name = "city" placeholder = "city" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">State</th>
+                                                      <td>
+                                                            <input id = "signup_pin" class="form-control" type = "text" name = "pin" placeholder = "pin" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Pin</th>
+                                                      <td>
+                                                            <input id = "signup_pin" class="form-control" type = "text" name = "pin" placeholder = "pin" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Landmark</th>
+                                                       <td>
+                                                            <input id = "signup_landmark" class="form-control" type = "text" name = "landmark" placeholder = "landmark" required/>
+                                                        </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                                <div align = "center">
+                                                    <button type="submit" class="btn btn-primary">SignUp</button>
+                                                </div>
+                                             </form>
+                                            {
+                                                !this.props.isMerchant
+                                                ?
+                                                    <Link class="btn btn-link" to="/merchant/signup" Style="float:right">SignUp as Merchant</Link>
+                                                :
+                                                    <Link class="btn btn-link" to="/customer/signup" Style="float:right">SignUp as Customer</Link>
+                                            }
+                                            <br/><br/>
+                                        </div> 
+                                    </div>
+                                    <br/>
+                                </div>
+                          </div>
                         <br/>
-                        <input id = "signup_password" class="form-control" type = "password" name = "password" placeholder = "********" required/>
-                        <br/>
-                        <input id = "signup_firstname" class="form-control" type = "text" name = "firstname" placeholder = "firstname" required/>
-                        <br/>
-                        <input id = "signup_lastname" class="form-control" type = "text" name = "lastname" placeholder = "lastname" required/>
-                        <br/>
-                        <input id = "signup_email" class="form-control" type = "email" name = "email" placeholder = "email" required/>
-                        <br/>
-                        {
-                            this.props.isMerchant &&
-                            <input id = "signup_companyname" class="form-control" type = "text" name = "companyname" placeholder = "companyname" required/>
-                        }
-                        {
-                            this.props.isMerchant &&
-                            <br/>
-                        }
-                        {
-                            this.props.isMerchant &&
-                            <input id = "signup_companyemail" class="form-control" type = "email" name = "companyemail" placeholder = "companyemail" required/>
-                        }
-                        {
-                            this.props.isMerchant &&
-                            <br/>
-                        }
-                        {
-                            this.props.isMerchant &&
-                            <input id = "signup_aadharno" class="form-control" type = "text" name = "aadharno" placeholder = "aadharno" required/>
-                        }
-                        {
-                            this.props.isMerchant &&
-                            <br/>
-                        }
-                        <input id = "signup_houseno" class="form-control" type = "text" name = "houseno" placeholder = "houseno" required/>
-                        <br/>
-                        <input id = "signup_street" class="form-control" type = "text" name = "street" placeholder = "street" required/>
-                        <br/>
-                        <input id = "signup_city" class="form-control" type = "text" name = "city" placeholder = "city" required/>
-                        <br/>
-                        <input id = "signup_state" class="form-control" type = "text" name = "state" placeholder = "state" required/>
-                        <br/>
-                        <input id = "signup_pin" class="form-control" type = "text" name = "pin" placeholder = "pin" required/>
-                        <br/>
-                        <input id = "signup_landmark" class="form-control" type = "text" name = "landmark" placeholder = "landmark" required/>
-                        <br/>
-                        <div align = "center">
-                            <button type="submit" class="btn btn-primary">SignUp</button>
-                        </div>
-                    </form>
-                    <br/><br/><br/><br/>
+                    </div>
                 </div>
-                
-                
-                
-
                 )
 
         }

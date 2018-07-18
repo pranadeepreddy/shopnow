@@ -46,7 +46,8 @@ class Orders extends Component{
         const options = {year: 'numeric', month: 'long', day: 'numeric' };
         return(
             <div class="container">
-              <legend align='center'>  My Orders</legend>
+              <div><br/></div>
+              <div class="card-header" Style = "width:900px;margin:auto;" align = "center"><h5><b>My Orders</b></h5></div>
               <div><br/></div>
                 {this.state.orders_results.map(item => (
                     <div class="w3-container" align='center'>

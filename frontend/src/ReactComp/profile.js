@@ -198,20 +198,27 @@ class Profile extends Component{
         return(
                 <div class="container">
                     <br/>
-                    {
-                        (this.cookies.get('shopnow_type') == 2)
-                        ?
-                            <legend align='center'>Merchant Profile</legend>
-                        :
-                            <legend align='center'>Customer Profile</legend>
-                    }
-                    
-                    <br/>
                     <div class="w3-container" align='center'>
                           <div class="w3-card-4" Style="width:70%">
+                              <div class="card-header" align = "center">
+                                  <h4><b>
+                                    {
+                                        (this.cookies.get('shopnow_type') == 2)
+                                        ?
+                                            <legend align='center'>Merchant Profile</legend>
+                                        :
+                                            <legend align='center'>Customer Profile</legend>
+                                    }
+                                  </b></h4>
+                              </div>
+                              <div><br/></div>
+                              <Link class="btn btn-link" to="/customer/signup" Style="float:left">Change Password <ion-icon name="create"></ion-icon></Link>
+                                
                                 <div class="w3-container" align="left">
                                     <div class="row">
+                                        
                                         <div class="col-sm-12">
+                                            <br/>
                                             <form onSubmit={this.submit}>
                                                 <table class="table table-hover">
                                                   <tbody>

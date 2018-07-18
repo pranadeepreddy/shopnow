@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { NavLink } from 'react-router-dom'
 import Cookies from 'universal-cookie';
-
+import NavLink from "./nav_link";
 
 
 class HeaderComponent extends Component{
     
-
+    
     cookies = new Cookies();
     
 //    constructor(props){
@@ -22,6 +21,12 @@ class HeaderComponent extends Component{
 //    }
 
 
+    searching = (event) =>{
+        if (event.keyCode === 13) {
+            this.search();
+            //this.props.history.push("/?search=" + document.getElementById('search').value);
+        }
+    }
     search = () =>{
         if(document.getElementById('search').value != ""){
             this.props.history.push("/?search=" + document.getElementById('search').value);
@@ -45,40 +50,40 @@ class HeaderComponent extends Component{
                       <div class="collapse navbar-collapse" id="navbarColor01">
                         <ul class="navbar-nav mr-auto">
                           <li class="nav-item">
-                            <Link class="nav-link" to="/">Home <span class="sr-only">(current)</span></Link>
+                            <NavLink  class="nav-link" to="/"><ion-icon name="home"></ion-icon>Home</NavLink >
                           </li>
                           <li class="nav-item">
-                              <Link class="nav-link" to="/profile">Profile</Link> 
+                              <NavLink class="nav-link" to="/profile"><ion-icon name="person"></ion-icon>Profile</NavLink> 
                           </li>
                           
                           <li class="nav-item">
                               {
                                     (this.cookies.get('shopnow_type') == 2) ?
-                                    <Link class="nav-link" to={"/myproducts/" + this.cookies.get('shopnow_id')}>My Products</Link>
+                                    <NavLink class="nav-link" to={"/myproducts/" + this.cookies.get('shopnow_id')}><ion-icon name="clipboard"></ion-icon>My Products</NavLink>
                                     :
-                                    <Link class="nav-link" to="/cart">Cart</Link>
+                                    <NavLink class="nav-link" to="/cart"><ion-icon name="cart"></ion-icon>Cart</NavLink>
                                 }
                             
                           </li>
                           <li class="nav-item">
                             {
                                     (this.cookies.get('shopnow_type') == 2) ?
-                                    <Link class="nav-link" to={"/myorders/" + this.cookies.get('shopnow_id')}>My orders</Link>
+                                    <NavLink class="nav-link" to={"/myorders/" + this.cookies.get('shopnow_id')}><ion-icon name="basket"></ion-icon>My orders</NavLink>
                                     :
-                                    <Link class="nav-link" to="/orders">Orders</Link>
+                                    <NavLink class="nav-link" to="/orders"><ion-icon name="basket"></ion-icon>Orders</NavLink>
                             }
                           </li>
                           <li class="nav-item" activeClass ="nav-item active">
                             {
                                     (this.cookies.get('shopnow_type') == 2) &&
-                                    <Link class="nav-link" to="/addproduct" >Add Products</Link>
+                                    <NavLink class="nav-link" to="/addproduct" ><ion-icon name="add-circle"></ion-icon>Add Products</NavLink>
                                     
                             }
                           </li>
                         </ul>
-                        <input class="form-inline my-2 my-lg-0" type="text" id="search" placeholder="Search"/>
+                        <input class="form-inline my-2 my-lg-0" type="text" id="search" onKeyDown = {this.searching} placeholder="Search"/>
                         &nbsp;  
-                        <button class="btn btn-secondary my-2 my-sm-0" onClick={() => this.search()}>Search</button>
+                        <button class="btn btn-secondary my-2 my-sm-0" id = "search_button" onClick={() => this.search()}>Search</button>
                         <div>
                               <ul class="navbar-nav mr-auto">
                               <li class="nav-item active">

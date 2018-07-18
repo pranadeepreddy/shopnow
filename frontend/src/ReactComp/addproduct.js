@@ -68,35 +68,46 @@ class AddProduct extends Component{
                 
                 if((this.cookies.get('shopnow_type') == 2) && (this.cookies.get('shopnow_status') == 1)){
                      return(
-                         <form onSubmit={this.submit}>
-                            <div Style="width:300px;margin:auto;">
-                                <br/><br/>
-                                <legend  align = "center">Add Product</legend>
+                         <div>
+                            <br/><br/>
+                            <div class="card mb-3" Style="width:500px;margin:auto;">
+
+                                <div class="card-header" align = "center"><h4><b>Add Product</b></h4></div>
+                                <div><br/></div>
                                 <br/>
-                                <input class="form-control" type = "text" id = "category" placeholder = "category" required/>
-                                <br/>
-                                <input class="form-control" type = "text" id = "name" placeholder = "product name" required/>
-                                <br/>
-                                 <input class="form-control" type = "text" id = "brand" placeholder = "product brand" required/>
-                                <br/>
-                                 <input class="form-control" type = "text" id = "stock_left" placeholder = "stock left" required/>
-                                <br/>
-                                <input name="image" type="file" id="fileName" accept=".jpg,.jpeg,.png" onChange={this.saveImage} required/>
-                                <br/><br/>
-                                 <input class="form-control" type = "text" id = "price" placeholder = "product price" required/>
-                                <br/>
-                                 <input class="form-control" type = "text" id = "discount" placeholder = "discount" required/>
-                                <br/>
-                                 <textarea class="form-control" id = "description" maxlength = "512" placeholder = "product description" required/>
-                                <br/>
-                                 <textarea class="form-control" maxlength = "512" id = "specification" placeholder = "product specfications" required/>
-                                <br/>
-                                <div align = "center">
-                                    <button type="submit" class="btn btn-primary" >Add Product</button>
+                                <div Style="width:300px;margin:auto;">
+                                    <form onSubmit={this.submit}>
+                                        <div Style="width:300px;margin:auto;">
+                                            
+                                            <input class="form-control" type = "text" id = "category" placeholder = "category" required/>
+                                            <br/>
+                                            <input class="form-control" type = "text" id = "name" placeholder = "product name" required/>
+                                            <br/>
+                                             <input class="form-control" type = "text" id = "brand" placeholder = "product brand" required/>
+                                            <br/>
+                                             <input class="form-control" type = "text" id = "stock_left" placeholder = "stock left" required/>
+                                            <br/>
+                                            <input name="image" type="file" id="fileName" accept=".jpg,.jpeg,.png" onChange={this.saveImage} required/>
+                                            <br/><br/>
+                                             <input class="form-control" type = "text" id = "price" placeholder = "product price" required/>
+                                            <br/>
+                                             <input class="form-control" type = "text" id = "discount" placeholder = "discount" required/>
+                                            <br/>
+                                             <textarea class="form-control" id = "description" maxlength = "512" placeholder = "product description" required/>
+                                            <br/>
+                                             <textarea class="form-control" maxlength = "512" id = "specification" placeholder = "product specfications" required/>
+                                            <br/>
+                                            <div align = "center">
+                                                <button type="submit" class="btn btn-primary" >Add Product</button>
+                                            </div>
+                                            <br/><br/>
+                                        </div>
+                                     </form>
                                 </div>
-                                <br/><br/><br/><br/>
                             </div>
-                         </form>
+                           <br/><br/>
+                        </div>
+                         
                     
                     )
                 }  

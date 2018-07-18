@@ -177,7 +177,8 @@ class PlaceOrder extends Component{
     render(){
         return(
             <div class="container">
-              <legend align='center'>  Place Order</legend>
+              <div><br/></div>
+              <div class="card-header" Style = "width:900px;margin:auto;" align = "center"><h5><b>Place Order</b></h5></div>
               <div><br/></div>
                 
                 {this.state.product_data.map(item => (

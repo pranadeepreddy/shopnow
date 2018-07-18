@@ -41,7 +41,8 @@ class MyProducts extends Component{
 
             <div class="container">
               <div><br/></div>
-            
+              <div class="card-header" align = "center"><h5><b>My Products</b></h5></div>
+              <div><br/></div>
               <div class="row">
                 {this.state.result_products.map(item => (
                     <div class="col-sm-3">
@@ -49,31 +50,43 @@ class MyProducts extends Component{
                             <div class="card-body">
                                 <Link to = {"/product/"+item.id} Style = "text-decoration: none;color: #000045;">
                                     <div>
-                                        <img Style="height: 200px; width: 100%; display: block;" align = "center" src={item.image} alt="Card image"/>
+                                        <img Style="height: 200px;max-width:100%; display: block;margin:auto;" src={item.image} alt="Card image"/>
 
                                             <h5 class="card-title">{item.name}</h5>
                                             <h6 class="card-subtitle text-muted">Brand  : {item.brand}</h6>
                                             <br/>
                                             <h6 class="card-subtitle text-muted">Seller  :  {item.merchant.company_name}</h6>
                                             <br/>
-                                            <p>Stock left : {item.stock_left}</p>
+                                            {
+                                                item.stock_left == 0 ?
+                                                <p class="badge badge-warning" Style = "font-size:15px">Out Of Stock</p>
+                                                :
+                                                <p>Stock left : {item.stock_left}</p>
+                                            }
+                                            
                                             <p>&#x20b9;{item.price - ((item.price/100) * item.discount)} <small class="card-subtitle text-muted"><del>&#x20b9;{item.price}</del>  {item.discount}% off </small></p>
 
                                     </div>
                             
                                 </Link>
                                 {
-                                
-                                    (this.cookies.get('shopnow_type') == 2) ?
-                                    <Link type="button" class="btn btn-primary" Style="width: 48%;" to = {"/editproduct/" + item.id} onClick={(evt) => this.props.editProduct(evt, item.id, item.merchant.id)}>Edit</Link>
+                                    item.deleted === false ?
+                                    <div>
+                                        {
+                                            (this.cookies.get('shopnow_type') == 2) ?
+                                            <Link type="button" class="btn btn-primary" Style="width: 48%;" to = {"/editproduct/" + item.id} onClick={(evt) => this.props.editProduct(evt, item.id, item.merchant.id)}>Edit</Link>
+                                            :
+                                            <Link type="button" class="btn btn-primary" Style="width: 48%;" to = "/cart" onClick={(evt) => this.props.addToCart(evt, item.id, this.props.history)}>Add to cart</Link>
+                                        }
+                                        {
+                                            (this.cookies.get('shopnow_type') == 2) ?
+                                            <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = "" onClick={(evt) => this.props.deleteProduct(evt, item.id, item.merchant.id, this.props.history)}>Delete</Link>
+                                            :
+                                            <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = {item.id + "/placeorder"} >Buy Now</Link>
+                                        }
+                                    </div>
                                     :
-                                    <Link type="button" class="btn btn-primary" Style="width: 48%;" to = "/cart" onClick={() => this.props.addToCart(item.id)}>Add to cart</Link>
-                                }
-                                {
-                                    (this.cookies.get('shopnow_type') == 2) ?
-                                    <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = "" onClick={(evt) => this.props.deleteProduct(evt, item.id, item.merchant.id)}>Delete</Link>
-                                    :
-                                    <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = {item.id + "/placeorder"} onClick="">Buy Now</Link>
+                                    <span class="badge badge-danger" Style = "font-size:15px">Deleted</span>
                                 }
                             </div>
                           </div>

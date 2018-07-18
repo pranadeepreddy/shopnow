@@ -1,13 +1,12 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
-
+import {cloneDeep} from 'lodash';
 
 class Cart extends Component{
     
     
     state = {
-        flag : 1,
         cart_results : [],
     }
     
@@ -32,6 +31,7 @@ class Cart extends Component{
                   }
         })
         .then(responseJson => {
+            console.log(responseJson);
             this.setState({ cart_results : responseJson});
 
         })
@@ -62,7 +62,7 @@ class Cart extends Component{
     }
     
     
-    changeCartCount = (cart_id, count) => {
+    changeCartCount = (cart_id, count, index) => {
         let formData = new FormData();
         
         formData.append("count" , count);
@@ -86,26 +86,31 @@ class Cart extends Component{
                   }
             })
         .then(responseJson => {
-            this.setState(prev => ({flag : prev.flag + 1}));
+            let cart_results = this.state.cart_results;
+            cart_results[index].count = count;
+            this.setState({cart_results}, () => {cart_results : cart_results});
+
         })
         .catch(e => {alert(e);});
     }
     
-    incrementCart = (evt, cart_id, cur_count) =>{
-        this.changeCartCount(cart_id, cur_count + 1);
+    incrementCart = (evt, cart_id, cur_count, index) =>{
+        this.changeCartCount(cart_id, cur_count + 1, index);
     }
     
-    decrementCart = (evt, cart_id, cur_count) =>{
-        this.changeCartCount(cart_id, cur_count - 1);
+    decrementCart = (evt, cart_id, cur_count, index) =>{
+        this.changeCartCount(cart_id, cur_count - 1, index);
     }
 
     render(){
         const options = {year: 'numeric', month: 'long', day: 'numeric' };
         return(
             <div class="container">
-              <legend align='center'>  My cart</legend>
               <div><br/></div>
-                {this.state.cart_results.map(item => (
+              <div class="card-header" Style = "width:900px;margin:auto;" align = "center"><h5><b>My Cart</b></h5></div>
+              <div><br/></div>
+              
+                {this.state.cart_results.map((item, index) => (
                     <div class="w3-container" align='center'>
                           <div class="w3-card-4" Style="width:70%">
                                 <div class="w3-container" align="left">
@@ -115,18 +120,27 @@ class Cart extends Component{
                                             <img src={item.product.image} alt="Avatar" class="w3-round" Style="width:80%"/>
                                             <div class="col-sm-8" Style="margin: auto;">
                                                     <br/>
-                                                    <button class="btn btn-primary btn-sm disabled" onClick={(evt) => this.decrementCart(evt, item.id, item.count)}>-</button>
+                                                    <button class="btn btn-primary btn-sm disabled" onClick={(evt) => this.decrementCart(evt, item.id, item.count, index)}>-</button>
                                                     &nbsp;&nbsp;
                                                     <label> {item.count} </label>
                                                     &nbsp;&nbsp;
-                                                    <button class="btn btn-primary btn-sm disabled" onClick={(evt) => this.incrementCart(evt, item.id, item.count)}>+</button>
+                                                    <button class="btn btn-primary btn-sm disabled" onClick={(evt) => this.incrementCart(evt, item.id, item.count, index)}>+</button>
                                                 </div>
                                         </div> 
                                         <div class="col-sm-5">
                                             <p><h3>{item.product.name}</h3></p>
                                             <p>Seller  :  {item.product.merchant.company_name}</p>
                                             <p>&#x20b9;{item.product.price - ((item.product.price/100) * item.product.discount)} <small class="card-subtitle text-muted"><del>&#x20b9;{item.product.price}</del>  {item.product.discount}% off </small></p>
-                                            <p>Stock left  : {item.product.stock_left}</p>
+                                            {
+                                                item.product.stock_left <= 0 ?
+                                                <div>
+                                                    <p class="badge badge-warning" Style = "font-size:15px">Out Of Stock</p>
+                                                    <br/>
+                                                </div>
+                                                
+                                                :
+                                                <p>Stock left : {item.product.stock_left}</p>
+                                            }
                                             <button class = "btn btn-primary" onClick={(evt) => this.deleteFromCart(evt, item.id)} >Remove from cart</button>
                                             
                                         </div> 

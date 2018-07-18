@@ -44,25 +44,34 @@ class Login extends Component{
 
             return(
                 
-                <div Style="width:300px;margin:auto;">
+                <div>
                     <br/><br/>
-                    <legend  align = "center">Login</legend>
-                    <br/>
-                    <form onSubmit={this.submit}>
-                        <label>Username</label>
-                        <input id = "login_username" type="text" class="form-control" placeholder="Enter Username" required/>
-                        <br></br>
-                        <label>Password</label>
-                        <input id = "login_password" type="password" class="form-control" placeholder="Enter Password" required/>
-                        <br></br>
-                        <div align = "center">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </div>
-                    </form>
-                    <br/>
-                    <Link class="btn btn-link" to="/customer/signup" Style="float:right">SignUp as Customer</Link>
-                    <Link class="btn btn-link" to="/merchant/signup" Style="float:right">SignUp as Merchant</Link>
+                    <div class="card mb-3" Style="width:500px;margin:auto;">
                     
+                        <div class="card-header" align = "center"><h4><b>Login</b></h4></div>
+                        <div><br/></div>
+                        <br/>
+                        <div Style="width:300px;margin:auto;">
+                            <form onSubmit={this.submit}>
+                                <label>Username</label>
+                                <input id = "login_username" type="text" class="form-control" placeholder="Enter Username" required/>
+                                <br></br>
+                                <label>Password</label>
+                                <input id = "login_password" type="password" class="form-control" placeholder="Enter Password" required/>
+                                <br></br>
+                                <div align = "center">
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                        <br/>
+                        <div>
+                            <Link class="btn btn-link" to="/merchant/signup" Style="float:left">SignUp as Merchant</Link>
+                            <Link class="btn btn-link" to="/customer/signup" Style="float:right">SignUp as Customer</Link>
+                        </div>
+                        <br/><br/>
+
+                    </div>
                 </div>
                 
                 

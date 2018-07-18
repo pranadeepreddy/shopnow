@@ -12,7 +12,7 @@ class ViewProductDetails(ListAPIView):
     serializer_class = ProductDetailSerializer
 
     def get_queryset(self):
-        return Product.objects.filter(pk = self.kwargs['pk']).filter(deleted = False)
+        return Product.objects.filter(pk = self.kwargs['pk'])
 
 class CreateProduct(CreateAPIView):
     permission_classes = (IsMerchant,IsAuthenticated)
