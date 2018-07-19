@@ -9,8 +9,9 @@ class Products extends Component{
 
     state = {
         result_products: [],
+        load_per_page : 12,
         page : 1,
-        length : 12,
+        length : 0,
         max : 100
     };
 
@@ -22,7 +23,6 @@ class Products extends Component{
         this.setState({
             result_products: temp
           });
-        //this.setState({result_products});
     }
     
     
@@ -55,11 +55,10 @@ class Products extends Component{
                   }
         })
         .then(responseJson => {
-            console.log(responseJson);
             this.saveResults(responseJson.results);
             this.setState({max : responseJson.count})
             this.setState((prev) => {page : prev.page + 1})
-            this.setState((prev) => {length : prev.length + 12})
+            this.setState((prev) => {length : prev.length + this.state.load_per_page})
 
         })
         .catch(e => {alert(e);});

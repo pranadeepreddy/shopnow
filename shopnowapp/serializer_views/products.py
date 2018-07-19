@@ -8,14 +8,14 @@ from django.db.models import Q
 from django.contrib import postgres
 
 
-class ExamplePagination(pagination.PageNumberPagination):
-    page_size = 12
+class Pagination(pagination.PageNumberPagination):
+    page_size = 4
 
 
 class Products(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ProductSerializer
-    pagination_class = ExamplePagination
+    pagination_class = Pagination
 
 
     def get_queryset(self):
@@ -36,6 +36,8 @@ class ProductData(ListAPIView):
 class MyProducts(ListAPIView):
     permission_classes = (IsMerchant, AllowAny)
     serializer_class = ProductSerializer
+    pagination_class = Pagination
+
 
     def get_queryset(self):
         queryset = Product.objects.filter(merchant_id=self.kwargs['pk'])[::-1]
