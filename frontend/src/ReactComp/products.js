@@ -1,27 +1,44 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 
 class Products extends Component{
 
     state = {
-
-        result_products : [],
+        result_products: [],
+        page : 1,
+        length : 12,
+        max : 100
     };
 
     cookies = new Cookies();
 
 
     saveResults = (result_products)=>{
-
-        this.setState({result_products});
+        let temp = this.state.result_products.concat(result_products);
+        this.setState({
+            result_products: temp
+          });
+        //this.setState({result_products});
     }
     
     
     getProducts = () =>{
-        fetch(this.props.products_url + this.props.location.search,{
+        if(this.state.max <= this.state.length)
+            return;
+        let url = this.props.products_url;
+        if(this.props.location.search == ""){
+            url = url + "?page=" + this.state.page;
+        }
+        else{
+            url = url + this.props.location.search + "&&page="+ this.state.page;
+        }
+        
+
+        fetch(url,{
             method:'GET',
             headers: new Headers({
                  'Authentication': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
@@ -38,7 +55,11 @@ class Products extends Component{
                   }
         })
         .then(responseJson => {
-            this.saveResults(responseJson);
+            console.log(responseJson);
+            this.saveResults(responseJson.results);
+            this.setState({max : responseJson.count})
+            this.setState((prev) => {page : prev.page + 1})
+            this.setState((prev) => {length : prev.length + 12})
 
         })
         .catch(e => {alert(e);});
@@ -46,7 +67,7 @@ class Products extends Component{
     
     
     getSearchData = (searchStr) =>{
-        if(searchStr.length == 0){
+        if(searchStr == ""){
             return "";
         }
         else{
@@ -75,9 +96,17 @@ class Products extends Component{
               <div><br/></div>
               <div class="card-header" align = "center"><h5><b>{"Home/" + this.getSearchData(this.props.location.search)}</b></h5></div>
               <div><br/></div>
-              <div class="row">
-                {this.state.result_products.map(item => (
-                    <div class="col-sm-3" hover>
+              
+                  <InfiniteScroll
+                      dataLength={this.state.length}
+                      next={this.getProducts}
+                      hasMore={true}
+                      loader={<h4>Loading...</h4>}
+                    >
+                     <div class="row">
+                      {this.state.result_products.map((item) => (
+                        
+                        <div class="col-sm-3" hover>
                         <div class="card mb-3" key={item.id}>
                             <div class="card-body">
                                 <Link to = {"/product/"+item.id} Style = "text-decoration: none;color: #000045;">
@@ -125,10 +154,12 @@ class Products extends Component{
                         </div>
                         
                         
-                   
-                ))}
+                    
+                        ))}
+                        </div>
+                    </InfiniteScroll>                    
             
-              </div>
+              
             </div>
             
 

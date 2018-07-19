@@ -1,5 +1,4 @@
-
-
+from rest_framework import pagination
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import AllowAny
 
@@ -8,10 +7,15 @@ from shopnowapp.serializer_views.permissions import *
 from django.db.models import Q
 from django.contrib import postgres
 
+
+class ExamplePagination(pagination.PageNumberPagination):
+    page_size = 12
+
+
 class Products(ListAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ProductSerializer
-
+    pagination_class = ExamplePagination
 
 
     def get_queryset(self):

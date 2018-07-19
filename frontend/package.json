@@ -39,6 +39,7 @@
     "react-confirm-alert": "^2.0.5",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.1",
+    "react-infinite-scroll-component": "^4.1.0",
     "react-redux-loading-bar": "^4.0.5",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
