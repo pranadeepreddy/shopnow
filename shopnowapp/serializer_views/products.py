@@ -9,7 +9,7 @@ from django.contrib import postgres
 
 
 class Pagination(pagination.PageNumberPagination):
-    page_size = 4
+    page_size = 12
 
 
 class Products(ListAPIView):

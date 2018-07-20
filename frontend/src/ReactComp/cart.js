@@ -1,13 +1,14 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
-import {cloneDeep} from 'lodash';
+import { ScaleLoader } from 'react-spinners';
 
 class Cart extends Component{
     
     
     state = {
         cart_results : [],
+        loading: true,
     }
     
     cookies = new Cookies();
@@ -31,13 +32,16 @@ class Cart extends Component{
                   }
         })
         .then(responseJson => {
-            console.log(responseJson);
+            this.toggleLoading(false);
             this.setState({ cart_results : responseJson});
 
         })
         .catch(e => {alert(e);});
     }
 
+    toggleLoading = (loading) =>{
+        this.setState({loading});
+    } 
 
     deleteFromCart = (evt, cart_id) => {
         fetch(this.props.deletecart_url + cart_id + '/',{
@@ -109,7 +113,16 @@ class Cart extends Component{
               <div><br/></div>
               <div class="card-header" Style = "width:900px;margin:auto;" align = "center"><h5><b>My Cart</b></h5></div>
               <div><br/></div>
-              
+              {
+                    this.state.loading ?
+                        <div className='sweet-loading' align="center">
+                            <ScaleLoader
+                              color={'#123abc'} 
+                              loading={this.state.loading} 
+                            />
+                          </div>
+                    :
+                    <div>
                 {this.state.cart_results.map((item, index) => (
                     <div class="w3-container" align='center'>
                           <div class="w3-card-4" Style="width:70%">
@@ -156,8 +169,8 @@ class Cart extends Component{
                         <br/>
                     </div>
                 ))}
-                
-                 
+                </div>
+            }
               
                 
                 

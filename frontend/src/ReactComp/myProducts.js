@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import InfiniteScroll from "react-infinite-scroll-component";
+import { ScaleLoader } from 'react-spinners';
 
 
 
@@ -10,14 +11,18 @@ class MyProducts extends Component{
     state = {
         
         result_products : [],
-        load_per_request : 12,
         page : 1,
         length : 0,
-        max : 100
+        max : 100,
+        hasmore : true,
+        loading : true,
     };
 
     cookies = new Cookies();
-
+    
+    toggleLoading = (loading) =>{
+        this.setState({loading});
+    } 
 
     saveResults = (result_products)=>{
         let temp = this.state.result_products.concat(result_products);
@@ -28,8 +33,11 @@ class MyProducts extends Component{
     
     
     getProducts = () =>{
-        if(this.state.max <= this.state.length)
+        if(this.state.max <= this.state.length){
+            this.setState({hasmore:false});
             return;
+        }
+          
         
         fetch(this.props.myproducts_url + this.props.match.params.id + "/?page=" + this.state.page,{
             method:'GET',
@@ -39,14 +47,13 @@ class MyProducts extends Component{
             })
         .then(response => response.json())
         .then(responseJson => {
+            this.toggleLoading(false);
             this.saveResults(responseJson.results);
             this.setState({max : responseJson.count})
             
             this.setState(prev => ({page : prev.page + 1}));
-            this.setState(prev => ({length : prev.length + this.state.load_per_request}));
+            this.setState(prev => ({length : prev.length + responseJson.results.length}));
             
-            console.log(this.state  )
-
         })
         .catch(e => {alert(e);});
     }
@@ -64,13 +71,23 @@ class MyProducts extends Component{
               <div><br/></div>
               <div class="card-header" align = "center"><h5><b>My Products</b></h5></div>
               <div><br/></div>
+            
+              {
+                    this.state.loading ?
+                        <div className='sweet-loading' align="center">
+                            <ScaleLoader
+                              color={'#123abc'} 
+                              loading={this.state.loading} 
+                            />
+                          </div>
+                    :
                 <InfiniteScroll
                       dataLength={this.state.length}
                       next={this.getProducts}
-                      hasMore={true}
-                      loader={<h4>Loading...</h4>}
+                      hasMore={this.state.hasmore}
+                      loader={<pre align="center">Loading more products...</pre>}
                     >
-                     <div class="row">
+                     <div class="row" Style="width : 100%;">
                       {this.state.result_products.map(item => (
                         <div class="col-sm-3">
                             <div class="card mb-3" key={item.id}>
@@ -124,7 +141,7 @@ class MyProducts extends Component{
                         ))}
                         </div>
                     </InfiniteScroll>
-            
+                }
 
                 </div>
 

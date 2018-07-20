@@ -115,11 +115,15 @@ class SignUp extends Component{
                                                   <tbody>
                                                     <tr>
                                                       <th scope="row">Username</th>
+                                                      <td>
                                                       <input id = "signup_username" class="form-control" type = "text" name = "username" placeholder = "username" required/>
+                                                      </td>
                                                     </tr>
                                                     <tr>
                                                       <th scope="row">Password</th>
+                                                      <td>
                                                       <input id = "signup_password" class="form-control" type = "password" name = "password" placeholder = "********" required/>
+                                                      </td>
                                                     </tr>
                                                     <tr>
                                                       <th scope="row">First Name</th>
@@ -223,6 +227,7 @@ class SignUp extends Component{
                           </div>
                         <br/>
                     </div>
+                    
                 </div>
                 )
 

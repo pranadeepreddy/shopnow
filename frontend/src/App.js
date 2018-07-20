@@ -281,9 +281,7 @@ class App extends Component {
                                 />
                             }
                         />
-                        <div class="progress" Style="height:3px">
-                          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" Style={"width: 75%"}></div>
-                        </div>
+
         
         
                         <Route exact path="/login" 
@@ -490,6 +488,17 @@ class App extends Component {
                              
                     </div>
                 </Router>
+                <br/><br/>
+                <footer class="btn-primary  disabled" align = "center">
+
+                    <div class="footer-copyright text-center py-3">© 2018 Copyright : Pranadeep</div>
+                    
+                    <a href="https://github.com/pranadeepreddy" target="_blank"><ion-icon name="logo-github" Style = "font-size: 30px;"></ion-icon></a>&nbsp;&nbsp;
+                    <a href="https://www.facebook.com/gpranadeep.reddy" target="_blank"><ion-icon name="logo-facebook" Style = "font-size: 30px;"></ion-icon></a>&nbsp;&nbsp;
+                    <a href="https://www.linkedin.com/in/pranadeep-reddy-659b37136/" target="_blank"><ion-icon name="logo-linkedin" Style = "font-size: 30px;"></ion-icon></a>&nbsp;&nbsp;
+                    <a href="https://twitter.com/Pranadeep17" target="_blank"><ion-icon name="logo-twitter" Style = "font-size: 30px;"></ion-icon></a>&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/pranadeepr/?hl=en" target="_blank"><ion-icon name="logo-instagram" Style = "font-size: 30px;"></ion-icon></a>&nbsp;&nbsp;
+                </footer>
             </React.Fragment>
       </div>
     );

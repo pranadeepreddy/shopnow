@@ -193,35 +193,98 @@ class EditProduct extends Component{
             {
                 if(this.cookies.get('shopnow_type') == 2){
                      return(
-                         <form onSubmit={this.submit}>
-                            <div Style="width:300px;margin:auto;">
-                                <br/><br/>
-                                <legend  align = "center">Edit Product</legend>
-                                <br/>
-                                <input onChange = {this.saveCategory} class="form-control" type = "text" name = "category" value = {this.state.category} placeholder = "category" required/>
-                                <br/>
-                                <input onChange = {this.saveName} class="form-control" type = "text" name = "name" value = {this.state.name} placeholder = "product name" required/>
-                                <br/>
-                                 <input onChange = {this.saveBrand} class="form-control" type = "text" name = "brand" value = {this.state.brand} placeholder = "product brand" required/>
-                                <br/>
-                                 <input onChange = {this.saveStockleft} class="form-control" type = "text" name = "stock_left" value = {this.state.stockleft} placeholder = "stock left" required/>
-                                <br/>
-                                <input name="image" type="file" id="fileName" accept=".jpg,.jpeg,.png" onChange={this.saveImage}/>
-                                <br/><br/>
-                                 <input onChange = {this.savePrice} class="form-control" type = "text" name = "price" placeholder = "product price" value = {this.state.price} required/>
-                                <br/>
-                                 <input onChange = {this.saveDiscount} class="form-control" type = "text" name = "discount" placeholder = "discount" value = {this.state.discount} required/>
-                                <br/>
-                                 <textarea onChange = {this.saveDescription} class="form-control" name = "description" maxlength = "512" value = {this.state.description} placeholder = "product description" required/>
-                                <br/>
-                                 <textarea onChange = {this.saveSpecification} class="form-control" maxlength = "512" name = "specfications" value = {this.state.specification} placeholder = "product specfications" required/>
-                                <br/>
-                                <div align = "center">
-                                    <button type="submit" class="btn btn-primary" >Save Changes</button>
+                         
+                         <div class="container">
+                    <br/>
+                    <div class="w3-container" align='center'>
+                          <div class="w3-card-4" Style="width:70%">
+                              <div class="card-header" align = "center">
+                                  <h4><b>
+                                    <legend align='center'>Edit Product</legend>
+                                  </b></h4>
+                              </div>
+                              <div><br/></div>
+                                <div class="w3-container" align="left">
+                                    <div class="row">
+                                        
+                                        <div class="col-sm-12">
+                                            <br/>
+                                            <form onSubmit={this.submit}>
+                                                <table class="table table-hover">
+                                                  <tbody>
+                                                    <tr>
+                                                      <th scope="row">Category</th>
+                                                      <td>
+                                                      <input onChange = {this.saveCategory} class="form-control" type = "text" name = "category" value = {this.state.category} placeholder = "category" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Product Name</th>
+                                                      <td>
+                                                      <input onChange = {this.saveName} class="form-control" type = "text" name = "name" value = {this.state.name} placeholder = "product name" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Product Brand</th>
+                                                      <td>
+                                                      <input onChange = {this.saveBrand} class="form-control" type = "text" name = "brand" value = {this.state.brand} placeholder = "product brand" required/>  
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Stock Left</th>
+                                                      <td>
+                                                      <input onChange = {this.saveStockleft} class="form-control" type = "text" name = "stock_left" value = {this.state.stockleft} placeholder = "stock left" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Upload Image</th>
+                                                      <td>
+                                                      <input name="image" type="file" id="fileName" accept=".jpg,.jpeg,.png" onChange={this.saveImage}/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Price</th>
+                                                      <td>
+                                                      <input onChange = {this.savePrice} class="form-control" type = "text" name = "price" placeholder = "product price" value = {this.state.price} required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Discount</th>
+                                                      <td>
+                                                      <input onChange = {this.saveDiscount} class="form-control" type = "text" name = "discount" placeholder = "discount" value = {this.state.discount} required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Description</th>
+                                                      <td>
+                                                      <textarea onChange = {this.saveDescription} class="form-control" name = "description" maxlength = "512" value = {this.state.description} placeholder = "product description" required/>
+                                                      </td>
+                                                    </tr>
+                                                    <tr>
+                                                      <th scope="row">Specification</th>
+                                                      <td>
+                                                      <textarea onChange = {this.saveSpecification} class="form-control" maxlength = "512" name = "specfications" value = {this.state.specification} placeholder = "product specfications" required/>
+                                                      </td>
+                                                    </tr>   
+                                                    
+                                                    
+                                                  </tbody>
+                                                </table>
+                                                <br/>
+                                                <div align = "center">
+                                                    <button type="submit" class="btn btn-primary" >Save Changes</button>
+                                                </div>
+                                                <br/><br/><br/><br/>
+                                             </form>
+                                            
+                                        </div> 
+                                    </div>
+                                    <br/>
                                 </div>
-                                <br/><br/><br/><br/>
                             </div>
-                         </form>
+                        <br/>
+                    </div>
+                </div>
                     
                     )
                 }  

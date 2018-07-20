@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import { ScaleLoader } from 'react-spinners';
 
 
 
@@ -22,10 +23,14 @@ class Profile extends Component{
         landmark : '',
 
         result_profile : [],
+        loading: true,
     };
 
     cookies = new Cookies();
 
+    toggleLoading = (loading) =>{
+        this.setState({loading});
+    }
 
     saveName=(username)=>{
 
@@ -129,6 +134,7 @@ class Profile extends Component{
                   }
         })
         .then(responseJson => {
+            this.toggleLoading(false);
             this.setState({ result_profile : responseJson[0]});
             this.saveName(this.state.result_profile.user.username);
             this.saveFirstname(this.state.result_profile.user.first_name);
@@ -212,12 +218,22 @@ class Profile extends Component{
                                   </b></h4>
                               </div>
                               <div><br/></div>
+                              {
+                                this.state.loading ?
+                                    <div className='sweet-loading' align="center">
+                                        <ScaleLoader
+                                          color={'#123abc'} 
+                                          loading={this.state.loading} 
+                                        />
+                                      </div>
+                                :
+                            <div>
                               <Link class="btn btn-link" to="/customer/signup" Style="float:left">Change Password <ion-icon name="create"></ion-icon></Link>
                                 
                                 <div class="w3-container" align="left">
                                     <div class="row">
                                         
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12" >
                                             <br/>
                                             <form onSubmit={this.submit}>
                                                 <table class="table table-hover">
@@ -319,6 +335,8 @@ class Profile extends Component{
                                     </div>
                                     <br/>
                                 </div>
+                            </div>
+                              }
                           </div>
                         <br/>
                     </div>

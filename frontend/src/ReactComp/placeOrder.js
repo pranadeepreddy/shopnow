@@ -206,7 +206,16 @@ class PlaceOrder extends Component{
                                             <p><h3>{item.name}</h3></p>
                                             <p>Seller  :  {item.merchant.company_name}</p>
                                             <p>&#x20b9;{item.price - ((item.price/100) * item.discount)} <small class="card-subtitle text-muted"><del>&#x20b9;{item.price}</del>  {item.discount}% off </small></p>
-                                            <p>Stock left  : {item.stock_left}</p>
+                                            {
+                                                item.stock_left <= 0 ?
+                                                <div>
+                                                    <p class="badge badge-warning" Style = "font-size:15px">Out Of Stock</p>
+                                                    <br/>
+                                                </div>
+                                                
+                                                :
+                                                <p>Stock left : {item.stock_left}</p>
+                                            }
                                             
                                         </div> 
                                         <div class="col-sm-4">

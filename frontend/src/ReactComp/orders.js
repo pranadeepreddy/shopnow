@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import { ScaleLoader } from 'react-spinners';
 
 
 class Orders extends Component{
@@ -9,6 +10,7 @@ class Orders extends Component{
     state = {
         cancelOrder : 4,
         orders_results : [],
+        loading: true,
     }
         
     cookies = new Cookies();
@@ -33,13 +35,16 @@ class Orders extends Component{
                   }
         })
         .then(responseJson => {
+            this.toggleLoading(false);
             this.setState({ orders_results : responseJson});
 
         })
         .catch(e => {alert(e);});
     }
 
-
+    toggleLoading = (loading) =>{
+        this.setState({loading});
+    } 
     
 
     render(){
@@ -49,6 +54,16 @@ class Orders extends Component{
               <div><br/></div>
               <div class="card-header" Style = "width:900px;margin:auto;" align = "center"><h5><b>My Orders</b></h5></div>
               <div><br/></div>
+              {
+                    this.state.loading ?
+                        <div className='sweet-loading' align="center">
+                            <ScaleLoader
+                              color={'#123abc'} 
+                              loading={this.state.loading} 
+                            />
+                          </div>
+                    :
+                <div>
                 {this.state.orders_results.map(item => (
                     <div class="w3-container" align='center'>
                           <div class="w3-card-4" Style="width:80%">
@@ -114,7 +129,8 @@ class Orders extends Component{
                         <br/>
                     </div>
                 ))}
-                
+                </div>
+            }
                  
               
                 

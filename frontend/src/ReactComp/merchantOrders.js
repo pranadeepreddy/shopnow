@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import { BrowserRouter as Router, Route, button } from "react-router-dom";
 import Cookies from 'universal-cookie';
+import { ScaleLoader } from 'react-spinners';
 
 
 class MerchantOrders extends Component{
@@ -10,10 +11,14 @@ class MerchantOrders extends Component{
         acceptOrder : 2,
         cancelOrder : 3,
         orders_results : [],
+        loading : true,
     }
     
     cookies = new Cookies();
 
+    toggleLoading = (loading) =>{
+        this.setState({loading});
+    } 
 
     componentWillMount(){
         this.getData(1);
@@ -21,6 +26,7 @@ class MerchantOrders extends Component{
 
 
     getData = (status) =>{
+        this.toggleLoading(true);
         fetch(this.props.merchantorders_url + this.props.match.params.id + '/' + status + "/",{
             method:'GET',
             headers: new Headers({
@@ -39,6 +45,7 @@ class MerchantOrders extends Component{
                   }
         })
         .then(responseJson => {
+            this.toggleLoading(false);
             this.setState({ orders_results : responseJson});
 
         })
@@ -73,7 +80,16 @@ class MerchantOrders extends Component{
                 <br/>
               </div>
 
-              
+              {
+                    this.state.loading ?
+                        <div className='sweet-loading' align="center">
+                            <ScaleLoader
+                              color={'#123abc'} 
+                              loading={this.state.loading} 
+                            />
+                          </div>
+                    :
+                    <div>
                 {this.state.orders_results.map(item => (
                     <div class="w3-container" align='center'>
                           <div class="w3-card-4" Style="width:80%">
@@ -161,7 +177,8 @@ class MerchantOrders extends Component{
                         <br/>
                     </div>
                 ))}
-                
+                </div>
+            }
                  
               
                 
