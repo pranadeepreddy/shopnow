@@ -34,7 +34,7 @@ class ProductDetails extends Component{
         })
         .then(responseJson => {
             this.setState({ result_products : responseJson});
-
+            console.log(responseJson)
         })
         .catch(e => {alert(e);});
      }
