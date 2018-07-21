@@ -2,30 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52845a3-8dce-46ed-a4b7-5e4af4ead56c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/ColumbiaRiver_2560x1600.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20151229_194327225.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20151229_194327225_LNWUrG4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20151229_194327225_dcHk5ms.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20151229_194327225_kcL4OcO.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20151229_194327225_kqO1UpG.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20160101_085830962.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20160101_091249733_HDR.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20160101_091327133_HDR.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20160624_095613221.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20160624_095613221_vZt8eo3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/IMG_20160624_095613221_w9cSx10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/a.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/avengers_infinity_war_hulk_black_panther_4k-3840x2160.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/avengers_infinity_war_hulk_black_panther_4k-3840x2160_oIOzmdv.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/avengers_infinity_war_superheroes_cast_4k_8k-3840x2160.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/avengers_infinity_war_superheroes_cast_4k_8k-3840x2160_FUSqTAI.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/bag.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/mobile.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/puma_shoes.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/saree.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shopnow/media/product_images/watch.jpeg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopnow/settings.py" afterPath="$PROJECT_DIR$/shopnow/settings.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/ColumbiaRiver_2560x1600.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/avengers_infinity_war_hulk_black_panther_4k-3840x2160.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/avengers_infinity_war_hulk_black_panther_4k-3840x2160_oIOzmdv.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/avengers_infinity_war_superheroes_cast_4k_8k-3840x2160.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/avengers_infinity_war_superheroes_cast_4k_8k-3840x2160_FUSqTAI.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/b.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/bag.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/mobile.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/planets_in_solar_system_4k-2048x2048.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/puma_shoes.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/saree.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/product_images/watch.jpeg" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,8 +50,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shopnow/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="74" column="45" lean-forward="true" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+            <state relative-caret-position="1258">
+              <caret line="74" column="45" lean-forward="false" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
               <folding>
                 <element signature="e#308#317#0" expanded="true" />
               </folding>
@@ -192,24 +180,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="shopnow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shopnow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shopnow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="media" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="product_images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -353,9 +323,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18986385" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18986385" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991454" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -397,13 +366,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/config/webpack.config.dev.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="271" column="83" lean-forward="false" selection-start-line="271" selection-start-column="83" selection-end-line="271" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/Lib/site-packages/django/db/models/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -694,10 +656,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/shopnow/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/shopnow/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="74" column="45" lean-forward="true" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+        <state relative-caret-position="1258">
+          <caret line="74" column="45" lean-forward="false" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
           <folding>
             <element signature="e#308#317#0" expanded="true" />
           </folding>
