@@ -13,12 +13,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import datetime
 
-
-
-import django_heroku
-
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -164,6 +158,3 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 MEDIA_URL = '/media/'
-
-
-django_heroku.settings(locals())
