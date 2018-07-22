@@ -45,11 +45,9 @@ class Products extends Component{
 
         fetch(url,{
             method:'GET',
-            headers: new Headers({
-                 'Authentication': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
-               }),
             })
         .then(response => {
+            console.log(response);
             if (response.ok) {
                     return response.json();
                   } else {
