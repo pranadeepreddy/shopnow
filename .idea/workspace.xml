@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52845a3-8dce-46ed-a4b7-5e4af4ead56c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/App.js" afterPath="$PROJECT_DIR$/frontend/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/addproduct.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/addproduct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/cart.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/editProduct.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/editProduct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/merchantOrders.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/merchantOrders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/myProducts.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/myProducts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/orders.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/orders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/placeOrder.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/placeOrder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/productDetails.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/productDetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/profile.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/signUp.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/signUp.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bundles/asset-manifest.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bundles/css/main.c17080f1.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bundles/css/main.c17080f1.css.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bundles/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bundles/js/main.656d83b6.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bundles/js/main.656d83b6.js.map" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bundles/media/logo.5d5d9eef.svg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/bundles/service-worker.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/login.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack-stats.prod.json" afterPath="$PROJECT_DIR$/webpack-stats.prod.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,8 +61,8 @@
       <file leaf-file-name="commands.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commands.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="110" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="110" />
+            <state relative-caret-position="85">
+              <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -171,8 +171,8 @@
         <option value="$PROJECT_DIR$/shopnow/production_settings.py" />
         <option value="$PROJECT_DIR$/commands.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/commands.txt" />
         <option value="$PROJECT_DIR$/shopnow/settings.py" />
+        <option value="$PROJECT_DIR$/commands.txt" />
       </list>
     </option>
   </component>
@@ -685,8 +685,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/commands.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="110" lean-forward="false" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="110" />
+        <state relative-caret-position="85">
+          <caret line="8" column="55" lean-forward="false" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
           <folding />
         </state>
       </provider>
