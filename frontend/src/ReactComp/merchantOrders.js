@@ -57,7 +57,7 @@ class MerchantOrders extends Component{
         return(
             <div class="container">
             <div><br/></div>
-              <div class="card-header" Style = "width:900px;margin:auto;" align = "center"><h5><b>My Orders</b></h5></div>
+              <div class="card-header" Style = "width:90%;margin:auto;" align = "center"><h5><b>My Orders</b></h5></div>
               <div><br/></div>
               <div Style="width:60%;margin:auto;">
                 <ul class="nav nav-tabs">

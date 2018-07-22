@@ -75,9 +75,7 @@ class App extends Component {
     }
 
     componentWillMount(){
-        
-        console.log(this.state.merchant_signup_url);
-        
+                
         let token = this.cookies.get('shopnow_jwt_token');
         if (!(typeof token === 'undefined'))
         {

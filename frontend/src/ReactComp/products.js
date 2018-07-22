@@ -47,6 +47,7 @@ class Products extends Component{
             method:'GET',
             headers: new Headers({
                  'Authentication': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
+                'Access-Control-Allow-Origin' : '*',
                }),
             })
         .then(response => {

@@ -14,7 +14,7 @@ class Login extends Component{
     
     submit = (e) =>{
         e.preventDefault();
-        var form = new FormData(document.getElementById("login_password").value);
+        var form = new FormData();
         form.append('username', document.getElementById("login_username").value);
         form.append('password', document.getElementById("login_password").value);
 

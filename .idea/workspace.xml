@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52845a3-8dce-46ed-a4b7-5e4af4ead56c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopnow/settings.py" afterPath="$PROJECT_DIR$/shopnow/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/login.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/merchantOrders.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/merchantOrders.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shopnow/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
@@ -48,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commands.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="commands.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/commands.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+            <state relative-caret-position="153">
+              <caret line="9" column="110" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="110" />
               <folding />
             </state>
           </provider>
@@ -664,14 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commands.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shopnow/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -679,6 +672,14 @@
           <folding>
             <element signature="e#308#317#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="110" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="110" />
+          <folding />
         </state>
       </provider>
     </entry>
