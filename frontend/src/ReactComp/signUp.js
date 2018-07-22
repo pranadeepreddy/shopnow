@@ -43,7 +43,6 @@ class SignUp extends Component{
         
         fetch(this.props.signup_url,{
             method:'POST',
-            mode: "no-cors",
             headers: new Headers({
                  'Content-Type': 'application/json',
                  'Accept': 'application/json',
@@ -68,7 +67,6 @@ class SignUp extends Component{
             loginform.append('password', password);
             fetch(this.props.login_url,{
                 method:'POST',
-                mode: "no-cors",
                 headers: new Headers({
                  'Accept': 'application/json',
                }),

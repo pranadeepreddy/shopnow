@@ -20,7 +20,6 @@ class Login extends Component{
 
         fetch(this.props.login_url,{
             method:'POST',
-            mode: "no-cors",
             body: form
             })
             .then(response => {

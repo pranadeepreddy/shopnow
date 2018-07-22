@@ -16,7 +16,6 @@ class Cart extends Component{
     componentWillMount(){
         fetch(this.props.cart_url,{
             method:'GET',
-            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
@@ -47,7 +46,6 @@ class Cart extends Component{
     deleteFromCart = (evt, cart_id) => {
         fetch(this.props.deletecart_url + cart_id + '/',{
                 method:'DELETE',
-                mode: "no-cors",
                 headers: new Headers({
                      'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                      'Content-Type': 'application/json',
@@ -75,7 +73,6 @@ class Cart extends Component{
         
         fetch(this.props.editcart_url+ cart_id + '/',{
             method:'PATCH',
-            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                  'Accept': 'application/json',

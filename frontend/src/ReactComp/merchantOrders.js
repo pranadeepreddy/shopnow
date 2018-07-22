@@ -29,7 +29,6 @@ class MerchantOrders extends Component{
         this.toggleLoading(true);
         fetch(this.props.merchantorders_url + this.props.match.params.id + '/' + status + "/",{
             method:'GET',
-            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),

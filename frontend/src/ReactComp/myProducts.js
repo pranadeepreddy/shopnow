@@ -41,7 +41,6 @@ class MyProducts extends Component{
         
         fetch(this.props.myproducts_url + this.props.match.params.id + "/?page=" + this.state.page,{
             method:'GET',
-            mode: "no-cors",
             headers: new Headers({
                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),

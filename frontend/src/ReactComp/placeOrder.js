@@ -26,7 +26,6 @@ class PlaceOrder extends Component{
             
         fetch(this.props.productdata_url + this.props.match.params.id + '/',{
             method:'GET',
-            mode: "no-cors",
             headers: new Headers({
                  'Authentication': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
@@ -150,7 +149,6 @@ class PlaceOrder extends Component{
         
         fetch(this.props.placeorder_url,{
             method:'POST',
-            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                  //'Accept': 'application/json',

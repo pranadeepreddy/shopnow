@@ -19,7 +19,6 @@ class Orders extends Component{
     componentWillMount(){
         fetch(this.props.orders_url,{
             method:'GET',
-            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
