@@ -67,6 +67,9 @@ class SignUp extends Component{
             loginform.append('password', password);
             fetch(this.props.login_url,{
                 method:'POST',
+                headers: new Headers({
+                 'Accept': 'application/json',
+               }),
                 body: loginform,
                 })
                 .then(response => {
