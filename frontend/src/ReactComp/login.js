@@ -24,14 +24,13 @@ class Login extends Component{
             body: form
             })
             .then(response => {
-                console.log(response, response.json());
+                
                 if (response.ok) {
                     return response.json();
                   } else {
-                    
+                    console.log(response, response.json());
                     var error = new Error(response.statusText);
                     error.response = response;
-                    alert(error,response.statusText);
                     throw error
                   }
             })
