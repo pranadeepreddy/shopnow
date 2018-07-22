@@ -24,6 +24,7 @@ class Login extends Component{
             body: form
             })
             .then(response => {
+                console.log(response);
                 if (response.ok) {
                     return response.json();
                   } else {
