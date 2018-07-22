@@ -191,7 +191,7 @@ class SignUp extends Component{
                                                     <tr>
                                                       <th scope="row">State</th>
                                                       <td>
-                                                            <input id = "signup_pin" class="form-control" type = "text" name = "pin" placeholder = "pin" required/>
+                                                            <input id = "signup_state" class="form-control" type = "text" name = "state" placeholder = "state" required/>
                                                       </td>
                                                     </tr>
                                                     <tr>

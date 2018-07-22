@@ -30,8 +30,8 @@ import Profile from './ReactComp/profile'
 
 class App extends Component {
     
-    server_url = "http://18.222.137.198:8000/";
-    //server_url : "http://127.0.0.1:8000/";
+    //server_url = "http://18.222.137.198:8000/";
+    //server_url : "http://18.222.137.198:8000/";
 
 
     state = {
@@ -44,37 +44,40 @@ class App extends Component {
         
         
         
-        login_url : this.server_url + "token-auth/",
-        userDetails_url : this.server_url + "shopnow/userdetails/",
-        merchant_signup_url : this.server_url + "shopnow/addmerchant/",
-        customer_signup_url : this.server_url + "shopnow/addcustomer/",
+        login_url : "http://18.222.137.198:8000/token-auth/",
+        userDetails_url : "http://18.222.137.198:8000/shopnow/userdetails/",
+        merchant_signup_url : "http://18.222.137.198:8000/shopnow/addmerchant/",
+        customer_signup_url : "http://18.222.137.198:8000/shopnow/addcustomer/",
         
-        addproduct_url : this.server_url + "shopnow/addproduct/",
-        editproduct_url : this.server_url + "shopnow/editproduct/",
-        deleteproduct_url : this.server_url + "shopnow/deleteproduct/",
+        addproduct_url : "http://18.222.137.198:8000/shopnow/addproduct/",
+        editproduct_url : "http://18.222.137.198:8000/shopnow/editproduct/",
+        deleteproduct_url : "http://18.222.137.198:8000/shopnow/deleteproduct/",
         
-        products_url : this.server_url + "shopnow/products",
-        productdata_url : this.server_url + "shopnow/product/",
-        product_details_url : this.server_url + "shopnow/productdetails/",
-        myproducts_url : this.server_url + "shopnow/myproducts/",
+        products_url : "http://18.222.137.198:8000/shopnow/products",
+        productdata_url : "http://18.222.137.198:8000/shopnow/product/",
+        product_details_url : "http://18.222.137.198:8000/shopnow/productdetails/",
+        myproducts_url : "http://18.222.137.198:8000/shopnow/myproducts/",
         
-        addtocart_url : this.server_url + "shopnow/addcart/",
-        cart_url : this.server_url + "shopnow/cart/",
-        deletecart_url : this.server_url + "shopnow/deletecart/",
-        editcart_url : this.server_url + "shopnow/editcart/",
+        addtocart_url : "http://18.222.137.198:8000/shopnow/addcart/",
+        cart_url : "http://18.222.137.198:8000/shopnow/cart/",
+        deletecart_url : "http://18.222.137.198:8000/shopnow/deletecart/",
+        editcart_url : "http://18.222.137.198:8000/shopnow/editcart/",
         
-        placeorder_url : this.server_url + "shopnow/placeorder/",
-        orders_url : this.server_url + "shopnow/orders/",
-        deleteorder_url : this.server_url + "shopnow/editorder/",
-        merchantorders_url : this.server_url + "shopnow/myorders/",
+        placeorder_url : "http://18.222.137.198:8000/shopnow/placeorder/",
+        orders_url : "http://18.222.137.198:8000/shopnow/orders/",
+        deleteorder_url : "http://18.222.137.198:8000/shopnow/editorder/",
+        merchantorders_url : "http://18.222.137.198:8000/shopnow/myorders/",
         
-        customerprofile_url : this.server_url + "shopnow/viewcustomer/",
-        merchantprofile_url : this.server_url + "shopnow/viewmerchant/",
-        editcustomer_utl : this.server_url + "shopnow/editcustomer/",
-        editmerchant_url : this.server_url + "shopnow/editmerchant/"
+        customerprofile_url : "http://18.222.137.198:8000/shopnow/viewcustomer/",
+        merchantprofile_url : "http://18.222.137.198:8000/shopnow/viewmerchant/",
+        editcustomer_utl : "http://18.222.137.198:8000/shopnow/editcustomer/",
+        editmerchant_url : "http://18.222.137.198:8000/shopnow/editmerchant/"
     }
 
     componentWillMount(){
+        
+        console.log(this.state.merchant_signup_url);
+        
         let token = this.cookies.get('shopnow_jwt_token');
         if (!(typeof token === 'undefined'))
         {
