@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d52845a3-8dce-46ed-a4b7-5e4af4ead56c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/App.js" afterPath="$PROJECT_DIR$/frontend/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/addproduct.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/addproduct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/cart.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/editProduct.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/editProduct.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/login.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/merchantOrders.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/merchantOrders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/myProducts.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/myProducts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/orders.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/orders.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/placeOrder.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/placeOrder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/productDetails.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/productDetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/products.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/products.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/profile.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/signUp.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/signUp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shopnow/settings.py" afterPath="$PROJECT_DIR$/shopnow/settings.py" />
-    </list>
+    <list default="true" id="d52845a3-8dce-46ed-a4b7-5e4af4ead56c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
