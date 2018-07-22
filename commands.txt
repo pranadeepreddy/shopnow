@@ -8,3 +8,7 @@ open virtual env : source venv/bin/activate
 
 to create static file :  python manage.py collectstatic
 to run the production server  : python manage.py runserver --settings=shopnow.production_settings 0.0.0.0:8000
+
+
+netstat -ntlp
+kill -9 PID
