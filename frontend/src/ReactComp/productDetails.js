@@ -20,6 +20,7 @@ class ProductDetails extends Component{
     componentDidMount(){
         fetch(this.props.product_details_url + this.props.match.params.id + '/',{
             method:'GET',
+            mode: "no-cors",
             })
         .then(response => {
             if (response.ok) {

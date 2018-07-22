@@ -40,6 +40,7 @@ class AddProduct extends Component{
         
         fetch(this.props.addproduct_url,{
             method:'POST',
+            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                  'Accept': 'application/json',

@@ -23,6 +23,7 @@ class EditProduct extends Component{
     componentWillMount(){
         fetch(this.props.product_details_url + this.props.match.params.id + '/',{
             method:'GET',
+            mode: "no-cors",
             })
         .then(response => {
             if (response.ok) {
@@ -166,6 +167,7 @@ class EditProduct extends Component{
         
         fetch(this.props.editproduct_url + this.props.match.params.id + '/',{
             method:'PATCH',
+            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                  'Accept': 'application/json',

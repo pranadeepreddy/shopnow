@@ -118,6 +118,7 @@ class Profile extends Component{
     componentWillMount(){
         fetch(this.props.profile_url,{
             method:'GET',
+            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
@@ -162,6 +163,7 @@ class Profile extends Component{
         e.preventDefault();
         fetch(this.props.editprofile_url + this.cookies.get("shopnow_id") + '/',{
             method:'PATCH',
+            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                  'Content-Type': 'application/json',

@@ -100,6 +100,7 @@ class App extends Component {
         
         fetch(this.state.userDetails_url,{
             method:'GET',
+            mode: "no-cors",
             headers: new Headers({
              'Authorization': `JWT ${token}`,
              'Content-Type': 'application/x-www-form-urlencoded',
@@ -160,6 +161,7 @@ class App extends Component {
         
         fetch(this.state.addtocart_url,{
             method:'POST',
+            mode: "no-cors",
             headers: new Headers({
                  'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                }),
@@ -204,6 +206,7 @@ class App extends Component {
         else if(window.confirm("Do you want to delete the item.") == true){
             fetch(this.state.deleteproduct_url + product_id + '/',{
                 method:'DELETE',
+                mode: "no-cors",
                 headers: new Headers({
                      'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                      'Content-Type': 'application/json',
@@ -246,6 +249,7 @@ class App extends Component {
         }
         fetch(this.state.deleteorder_url + order_id + '/',{
                 method:'PATCH',
+                mode: "no-cors",
                 headers: new Headers({
                      'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
                      'Accept': 'application/json',
@@ -255,7 +259,6 @@ class App extends Component {
             .then(response => {
                 
                 if (!response.ok) {
-                    console.log(response.json());
                     var error = new Error(response.statusText);
                     error.response = response;
                     alert(error,response.statusText);
