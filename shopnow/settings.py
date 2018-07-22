@@ -26,7 +26,7 @@ SECRET_KEY = 'g4ypet3b=ubt-zypuyg-m23_@3pycf33wvs(qqml*bi8wl5=_f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['18.222.137.198', '*']
 
 
 # Application definition
@@ -101,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shopnow_db',
         'HOST': 'localhost',
-        'USER':"pranadeep",
+        'USER':"root",
         'PASSWORD': "pranadeep"
     }
 }
@@ -153,7 +153,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 

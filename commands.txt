@@ -1,0 +1,8 @@
+
+to run development server  : python manage.py runserver
+to run npm server  : npm run start
+
+
+
+to create static file :  python manage.py collectstatic
+to run the production server  : python manage.py runserver --settings=shopnow.production_settings
