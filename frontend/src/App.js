@@ -30,7 +30,7 @@ import Profile from './ReactComp/profile'
 
 class App extends Component {
     
-    server_url = "http://18.222.137.198:8000";
+    server_url = "http://18.222.137.198:8000/";
     //server_url : "http://127.0.0.1:8000/";
 
 

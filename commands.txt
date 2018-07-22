@@ -3,6 +3,8 @@ to run development server  : python manage.py runserver
 to run npm server  : npm run start
 
 
+open virtual env : source venv/bin/activate
+
 
 to create static file :  python manage.py collectstatic
-to run the production server  : python manage.py runserver --settings=shopnow.production_settings
+to run the production server  : python manage.py runserver --settings=shopnow.production_settings 18.222.137.198:8000
