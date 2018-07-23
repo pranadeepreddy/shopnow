@@ -27,6 +27,7 @@ import PlaceOrder from './ReactComp/placeOrder'
 import Orders from './ReactComp/orders'
 import MerchantOrders from './ReactComp/merchantOrders'
 import Profile from './ReactComp/profile'
+import About from './ReactComp/about'
 
 class App extends Component {
     
@@ -489,6 +490,14 @@ class App extends Component {
                                 />
                                 :
                                 <Redirect to="/login" />
+                            }
+                         />
+
+                         <Route exact path="/about" 
+                            render={props=>
+                                <About 
+                                    {...props}
+                                />
                             }
                          />
                              

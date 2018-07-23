@@ -69,6 +69,9 @@ class HeaderComponent extends Component{
                                     
                             }
                           </li>
+                          <li class="nav-item">
+                              <NavLink class="nav-link" to="/about"><ion-icon name="information-circle"></ion-icon>About</NavLink> 
+                          </li>
                         </ul>
                         
                         <div>

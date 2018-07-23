@@ -88,7 +88,7 @@ class ProductDetails extends Component{
                             <h4>Seller:</h4>
                             <pre>{item.merchant.company_name}    {item.merchant.company_email   }</pre>
                             <h4>Description:</h4>
-                            <pre>{item.description}</pre>
+                            <p>{item.description}</p>
                             <h4>Specification:</h4>
                             <pre>{item.specification}</pre>
                         </div> 
