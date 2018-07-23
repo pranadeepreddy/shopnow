@@ -495,7 +495,9 @@ class App extends Component {
                     </div>
                 </Router>
                 <br/><br/>
-                <footer class="btn-primary  disabled" align = "center">
+                
+            </React.Fragment>
+            <footer class="btn-primary  disabled" align = "center">
 
                     <div class="footer-copyright text-center py-3">© 2018 Copyright : Pranadeep</div>
                     
@@ -505,7 +507,6 @@ class App extends Component {
                     <a href="https://twitter.com/Pranadeep17" target="_blank"><ion-icon name="logo-twitter" Style = "font-size: 30px;"></ion-icon></a>&nbsp;&nbsp;
                     <a href="https://www.instagram.com/pranadeepr/?hl=en" target="_blank"><ion-icon name="logo-instagram" Style = "font-size: 30px;"></ion-icon></a>&nbsp;&nbsp;
                 </footer>
-            </React.Fragment>
       </div>
     );
   }

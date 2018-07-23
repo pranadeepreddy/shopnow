@@ -23,7 +23,7 @@ class Customer(models.Model):
 class Merchant(models.Model):
     company_name = models.CharField(max_length=32)
     company_email = models.CharField(max_length=32)
-    status = models.IntegerField(default = 0)   # pending = 0    blocked = -1    allowed = 1
+    status = models.IntegerField(default = 1)   # pending = 0    blocked = -1    allowed = 1
     house_no = models.CharField(max_length=32)
     street = models.CharField(max_length=32)
     city = models.CharField(max_length=32)

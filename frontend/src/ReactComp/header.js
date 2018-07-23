@@ -10,27 +10,16 @@ class HeaderComponent extends Component{
     
     cookies = new Cookies();
     
-//    constructor(props){
-//        super(props);
-//        let token = this.cookies.get('shopnow_jwt_token');
-//        if (!(typeof token === 'undefined'))
-//        {
-//            this.props.toggleLoggedIn();
-//
-//        }
-//    }
 
 
     searching = (event) =>{
         if (event.keyCode === 13) {
             this.search();
-            //this.props.history.push("/?search=" + document.getElementById('search').value);
         }
     }
     search = () =>{
         if(document.getElementById('search').value != ""){
             this.props.history.push("/?search=" + document.getElementById('search').value);
-            //this.props.reload.bind();
         }
     }
 
@@ -81,16 +70,14 @@ class HeaderComponent extends Component{
                             }
                           </li>
                         </ul>
-                        <input class="form-inline my-2 my-lg-0" type="text" id="search" onKeyDown = {this.searching} placeholder="Search"/>
-                        &nbsp;  
-                        <button class="btn btn-secondary my-2 my-sm-0" id = "search_button" onClick={() => this.search()}>Search</button>
+                        
                         <div>
                               <ul class="navbar-nav mr-auto">
                               <li class="nav-item active">
                                    {
                                         isLoggedIn ? <Link class="nav-link" to="/login" onClick = {this.props.logout}>Logout</Link>
                                         :
-                                        <Link class="nav-link" to="/login">Login</Link>
+                                        <Link class="nav-link" to="/login">SignUp / Login</Link>
                                     }
                               </li>
                             </ul>
@@ -98,6 +85,13 @@ class HeaderComponent extends Component{
 
                       </div>
                     </nav>
+                    <div class = "navbar-nav dark bg-primary">
+                       <div class = "form-inline my-2 my-lg-0" Style = "margin : auto">
+                            <input class="form-inline my-2 my-lg-0"  type="text" id="search" onKeyDown = {this.searching} placeholder="Search"/>
+                            <button class="btn btn-secondary my-2 my-sm-0" id = "search_button" onClick={() => this.search()}>Search</button>
+                       </div>
+                    
+                    </div>
                 
                 </div>
 

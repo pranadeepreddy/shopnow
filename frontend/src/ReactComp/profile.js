@@ -228,7 +228,6 @@ class Profile extends Component{
                                       </div>
                                 :
                             <div>
-                              <Link class="btn btn-link" to="/customer/signup" Style="float:left">Change Password <ion-icon name="create"></ion-icon></Link>
                                 
                                 <div class="w3-container" align="left">
                                     <div class="row">

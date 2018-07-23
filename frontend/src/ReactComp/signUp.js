@@ -17,29 +17,47 @@ class SignUp extends Component{
         let username = document.getElementById("signup_username").value;
         let password = document.getElementById("signup_password").value;
         
-        let body = {
-                "user": {
-                    "username": username,
-                    "first_name": document.getElementById("signup_firstname").value,
-                    "last_name": document.getElementById("signup_lastname").value,
-                    "email": document.getElementById("signup_email").value,
-                    "password": password
-                }, 
-                "house_no": document.getElementById("signup_houseno").value,
-                "street": document.getElementById("signup_street").value,
-                "city": document.getElementById("signup_city").value,
-                "state": document.getElementById("signup_state").value,
-                "pin": document.getElementById("signup_pin").value,
-                "landmark": document.getElementById("signup_landmark").value
-            }
+        let body ;
         
         if(this.props.isMerchant){
-            body = body + {"company_name": document.getElementById("signup_companyname").value,
-                "company_email": document.getElementById("signup_companyemail").value,
-                "aadhar_no": document.getElementById("signup_aadharno").value
+            body = {
+                user: {
+                    username: username,
+                    first_name: document.getElementById("signup_firstname").value,
+                    last_name: document.getElementById("signup_lastname").value,
+                    email: document.getElementById("signup_email").value,
+                    password: password
+                }, 
+                house_no: document.getElementById("signup_houseno").value,
+                street: document.getElementById("signup_street").value,
+                city: document.getElementById("signup_city").value,
+                state: document.getElementById("signup_state").value,
+                pin: document.getElementById("signup_pin").value,
+                landmark: document.getElementById("signup_landmark").value,
+
+                company_name: document.getElementById("signup_companyname").value,
+                company_email: document.getElementById("signup_companyemail").value,
+                aadhar_no: document.getElementById("signup_aadharno").value
             }
         }
-        
+        else{
+            body = {
+                user: {
+                    username: username,
+                    first_name: document.getElementById("signup_firstname").value,
+                    last_name: document.getElementById("signup_lastname").value,
+                    email: document.getElementById("signup_email").value,
+                    password: password
+                }, 
+                house_no: document.getElementById("signup_houseno").value,
+                street: document.getElementById("signup_street").value,
+                city: document.getElementById("signup_city").value,
+                state: document.getElementById("signup_state").value,
+                pin: document.getElementById("signup_pin").value,
+                landmark: document.getElementById("signup_landmark").value,
+
+            }
+        }
         
         fetch(this.props.signup_url,{
             method:'POST',
@@ -50,10 +68,10 @@ class SignUp extends Component{
             body: JSON.stringify(body),
             })
             .then(response => {
+                console.log(response, response.json());
                 if (response.ok) {
                     return response.json();
                   } else {
-                    
                     var error = new Error(response.statusText);
                     error.response = response;
                     alert(error,response.statusText);

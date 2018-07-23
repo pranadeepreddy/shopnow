@@ -47,7 +47,6 @@ class Products extends Component{
             method:'GET',
             })
         .then(response => {
-            console.log(response);
             if (response.ok) {
                     return response.json();
                   } else {
