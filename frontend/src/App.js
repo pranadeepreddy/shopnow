@@ -424,7 +424,7 @@ class App extends Component {
                          />
 
 
-                        <Route exact path="/:id/placeorder" 
+                        <Route exact path="/product/:id/placeorder" 
                             render={props => this.state.isLoggedIn
                                 ?
                                 <PlaceOrder 
