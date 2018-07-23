@@ -106,7 +106,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shopnow_db',
         'HOST': 'localhost',
-        'USER':"pranadeep",
+        'USER':"root",
         'PASSWORD': "pranadeep"
     }
 }
