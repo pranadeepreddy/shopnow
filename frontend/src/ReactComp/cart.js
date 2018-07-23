@@ -125,7 +125,7 @@ class Cart extends Component{
                     <div>
                 {this.state.cart_results.map((item, index) => (
                     <div class="w3-container" align='center'>
-                          <div class="w3-card-4" Style="width:100%">
+                          <div class="w3-card-4" Style="width:80%">
                                 <div class="w3-container" align="left">
                                     <div class="row" key={item.id}>
                                         <div class="col-sm-3">
