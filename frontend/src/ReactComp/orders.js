@@ -11,7 +11,6 @@ class Orders extends Component{
         cancelOrder : 4,
         orders_results : [],
         loading: true,
-        reload : false,
     }
         
     cookies = new Cookies();
@@ -47,19 +46,6 @@ class Orders extends Component{
         this.getOrders();
     }
 
-    componentDidUpdate(prevState){
-        if(prevState.reload != prevState.reload)
-        {
-            this.update();
-            this.getOrders();
-        }
-    }
-
-    changeOrderStatus = async (evt, id, status) =>{
-        
-        await this.props.changeOrderStatus(evt, id, status);
-        this.setState(prev => ({reload : !prev.reload}));
-    }
 
     toggleLoading = (loading) =>{
         this.setState({loading});
@@ -125,7 +111,7 @@ class Orders extends Component{
                                             </p>
                                             {
                                                 (item.status ==1 || item.status ==2) &&
-                                                    <button class = "btn btn-primary" onClick={(evt) => this.changeOrderStatus(evt, item.id, this.state.cancelOrder)} >Cancel Order</button>
+                                                    <button class = "btn btn-primary" onClick={(evt) => this.props.changeOrderStatus(evt, item.id, this.state.cancelOrder)} >Cancel Order</button>
                                             }
                                             
                                         </div> 

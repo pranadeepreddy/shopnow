@@ -255,7 +255,11 @@ class App extends Component {
             })
             .then(response => {
                 
-                if (!response.ok) {
+                if (response.ok) {
+                    alert(`Order ${order_id}  - status Updated`);
+                }
+                else{
+
                     var error = new Error(response.statusText);
                     error.response = response;
                     alert(error,response.statusText);

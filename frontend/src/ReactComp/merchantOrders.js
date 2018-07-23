@@ -12,8 +12,6 @@ class MerchantOrders extends Component{
         cancelOrder : 3,
         orders_results : [],
         loading : true,
-        reload : false,
-        status : 1,
     }
     
     cookies = new Cookies();
@@ -26,19 +24,6 @@ class MerchantOrders extends Component{
         this.getData(1);
     }
 
-    changeOrderStatus = async (evt, id, status, delivery_date) =>{
-        this.setState({status});
-        await this.props.changeOrderStatus(evt, id, status, delivery_date);
-        this.setState(prev => ({reload : !prev.reload}));
-    }
-
-    componentDidUpdate(prevState){
-        if(prevState.reload != prevState.reload)
-        {
-            this.update();
-            this.getData(this.state.status);
-        }
-    }
 
     getData = (status) =>{
         this.toggleLoading(true);
@@ -158,13 +143,13 @@ class MerchantOrders extends Component{
                                                 item.status ==1 &&
                                                     <div class="row">
                                                         <div class="col-sm-3">
-                                                            <button class = "btn btn-primary disabled" onClick={(evt) => this.changeOrderStatus(evt, item.id, this.state.acceptOrder, document.getElementById(item.id).value)} >Accept Order</button>
+                                                            <button class = "btn btn-primary disabled" onClick={(evt) => this.props.changeOrderStatus(evt, item.id, this.state.acceptOrder, document.getElementById(item.id).value)} >Accept Order</button>
                                                         </div>
                                                         <div class="col-sm-3">
                                                     
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <button class = "btn btn-primary disabled" onClick={(evt) => this.changeOrderStatus(evt, item.id, this.state.cancelOrder)} >Reject Order</button>
+                                                            <button class = "btn btn-primary disabled" onClick={(evt) => this.props.changeOrderStatus(evt, item.id, this.state.cancelOrder)} >Reject Order</button>
                                                         </div>
                                                     </div>
                                                     
