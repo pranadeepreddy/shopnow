@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52845a3-8dce-46ed-a4b7-5e4af4ead56c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/cart.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/cart.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/ReactComp/placeOrder.js" afterPath="$PROJECT_DIR$/frontend/src/ReactComp/placeOrder.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

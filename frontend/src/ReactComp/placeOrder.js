@@ -240,7 +240,7 @@ class PlaceOrder extends Component{
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <form onSubmit = {this.submit}>
-                                            <div Style="width:100%;margin:auto;">
+                                            <div Style="width:70%;margin:auto;">
                                             <br/>
                                             <input onChange = {this.saveHouseno} class="form-control" type = "text" name = "houseno" placeholder = "houseno" required/>
                                             <br/> 
