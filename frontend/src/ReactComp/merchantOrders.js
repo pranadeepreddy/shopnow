@@ -59,26 +59,24 @@ class MerchantOrders extends Component{
             <div><br/></div>
               <div class="card-header" Style = "width:90%;margin:auto;" align = "center"><h5><b>My Orders</b></h5></div>
               <div><br/></div>
-              <div Style="width:60%;margin:auto;">
-                <ul class="nav nav-tabs">
-                  <li class="nav-item" Style="width:20%" >
+                <ul class="nav nav-tabs" Style = "width:50%;margin:auto;">
+                  <li class="nav-item">
                     <button class="btn btn-outline-primary active" data-toggle="tab" onClick={() => this.getData(1)}>New Orders</button>
                   </li>
-                  <li class="nav-item" Style="width:20%" >
+                  <li class="nav-item">
                     <button class="btn btn-outline-primary" data-toggle="tab" onClick={() => this.getData(2)}>Shipping</button>
                   </li>
-                  <li class="nav-item" Style="width:20%" >
+                  <li class="nav-item">
                       <button class="btn btn-outline-primary" data-toggle="tab" onClick={() => this.getData(5)}>Delivered</button> 
                   </li>
-                  <li class="nav-item" Style="width:20%" >
+                  <li class="nav-item">
                       <button class="btn btn-outline-primary" data-toggle="tab" onClick={() => this.getData(3)}>Rejected</button> 
                   </li>
-                  <li class="nav-item" Style="width:20%" >
+                  <li class="nav-item">
                       <button class="btn btn-outline-primary" data-toggle="tab" onClick={() => this.getData(4)}>Cancelled</button> 
                   </li>
                 </ul>
                 <br/>
-              </div>
 
               {
                     this.state.loading ?

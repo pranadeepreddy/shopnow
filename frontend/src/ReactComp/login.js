@@ -48,12 +48,12 @@ class Login extends Component{
                 
                 <div>
                     <br/><br/>
-                    <div class="card mb-3" Style="width:500px;margin:auto;">
+                    <div class="card mb-3" Style="width:80%;margin:auto;">
                     
-                        <div class="card-header" align = "center"><h4><b>Login</b></h4></div>
+                        <div class="card-header" Style="width:100%;" align = "center"><h4><b>Login</b></h4></div>
                         <div><br/></div>
                         <br/>
-                        <div Style="width:300px;margin:auto;">
+                        <div Style="width:40%;margin:auto;">
                             <form onSubmit={this.submit}>
                                 <label>Username</label>
                                 <input id = "login_username" type="text" class="form-control" placeholder="Enter Username" required/>
@@ -67,7 +67,7 @@ class Login extends Component{
                             </form>
                         </div>
                         <br/>
-                        <div>
+                        <div Style="width:40%;margin:auto;">
                             <Link class="btn btn-link" to="/merchant/signup" Style="float:left">SignUp as Merchant</Link>
                             <Link class="btn btn-link" to="/customer/signup" Style="float:right">SignUp as Customer</Link>
                         </div>

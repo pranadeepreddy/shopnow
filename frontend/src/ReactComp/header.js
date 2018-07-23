@@ -88,6 +88,7 @@ class HeaderComponent extends Component{
                     <div class = "navbar-nav dark bg-primary">
                        <div class = "form-inline my-2 my-lg-0" Style = "margin : auto">
                             <input class="form-inline my-2 my-lg-0"  type="text" id="search" onKeyDown = {this.searching} placeholder="Search"/>
+                            &nbsp;
                             <button class="btn btn-secondary my-2 my-sm-0" id = "search_button" onClick={() => this.search()}>Search</button>
                        </div>
                     

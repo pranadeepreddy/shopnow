@@ -205,7 +205,7 @@ class Profile extends Component{
                 <div class="container">
                     <br/>
                     <div class="w3-container" align='center'>
-                          <div class="w3-card-4" Style="width:70%">
+                          <div class="w3-card-4" Style="width:100%">
                               <div class="card-header" align = "center">
                                   <h4><b>
                                     {
