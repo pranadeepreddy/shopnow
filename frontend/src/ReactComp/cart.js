@@ -90,6 +90,8 @@ class Cart extends Component{
                   }
             })
         .then(responseJson => {
+
+            console.log(responseJson);
             let cart_results = this.state.cart_results;
             cart_results[index].count = count;
             this.setState({cart_results}, () => {cart_results : cart_results});
