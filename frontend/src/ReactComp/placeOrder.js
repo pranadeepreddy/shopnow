@@ -232,7 +232,7 @@ class PlaceOrder extends Component{
                  
                 <div class="w3-container" align='center'>
                         
-                      <div class="w3-card-4" Style="width:70%">
+                      <div class="w3-card-4" Style="width:100%">
                             <header class="w3-container w3-light-grey">
                               <h3>Delivery Details</h3>
                             </header>
@@ -240,7 +240,7 @@ class PlaceOrder extends Component{
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <form onSubmit = {this.submit}>
-                                            <div Style="width:300px;margin:auto;">
+                                            <div Style="width:100%;margin:auto;">
                                             <br/>
                                             <input onChange = {this.saveHouseno} class="form-control" type = "text" name = "houseno" placeholder = "houseno" required/>
                                             <br/> 

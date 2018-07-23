@@ -111,7 +111,7 @@ class Cart extends Component{
         return(
             <div class="container">
               <div><br/></div>
-              <div class="card-header" Style = "width:900px;margin:auto;" align = "center"><h5><b>My Cart</b></h5></div>
+              <div class="card-header" Style = "width:100%;margin:auto;" align = "center"><h5><b>My Cart</b></h5></div>
               <div><br/></div>
               {
                     this.state.loading ?
@@ -125,7 +125,7 @@ class Cart extends Component{
                     <div>
                 {this.state.cart_results.map((item, index) => (
                     <div class="w3-container" align='center'>
-                          <div class="w3-card-4" Style="width:70%">
+                          <div class="w3-card-4" Style="width:100%">
                                 <div class="w3-container" align="left">
                                     <div class="row" key={item.id}>
                                         <div class="col-sm-3">

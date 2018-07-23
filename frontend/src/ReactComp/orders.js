@@ -52,7 +52,7 @@ class Orders extends Component{
         return(
             <div class="container">
               <div><br/></div>
-              <div class="card-header" Style = "width:900px;margin:auto;" align = "center"><h5><b>My Orders</b></h5></div>
+              <div class="card-header" Style = "width:100%;margin:auto;" align = "center"><h5><b>My Orders</b></h5></div>
               <div><br/></div>
               {
                     this.state.loading ?

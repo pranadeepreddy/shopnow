@@ -171,7 +171,7 @@ class Products extends Component{
                                             (this.cookies.get('shopnow_type') == 2) ?
                                             <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = "" onClick={(evt) => this.props.deleteProduct(evt, item.id, item.merchant.id, this.props.history)}>Delete</Link>
                                             :
-                                            <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = {"product" + item.id + "/placeorder"} >Buy Now</Link>
+                                            <Link type="button" class="btn btn-primary" Style="width: 48%;float : right;" to = {"product/" + item.id + "/placeorder"} >Buy Now</Link>
                                         }
                                     </div>
                                     :

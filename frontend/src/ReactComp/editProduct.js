@@ -197,7 +197,7 @@ class EditProduct extends Component{
                          <div class="container">
                     <br/>
                     <div class="w3-container" align='center'>
-                          <div class="w3-card-4" Style="width:70%">
+                          <div class="w3-card-4" Style="width:100%">
                               <div class="card-header" align = "center">
                                   <h4><b>
                                     <legend align='center'>Edit Product</legend>
@@ -291,7 +291,7 @@ class EditProduct extends Component{
                 else
                     return(
                         
-                        <div Style="width:300px;margin:auto;">
+                        <div Style="width:100%;margin:auto;">
                             <br/><br/><br/>
                             <p>No access</p>
                         </div>
