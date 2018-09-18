@@ -153,39 +153,41 @@ class App extends Component {
     addToCart = (evt, product_id, history) =>{
         evt.preventDefault();
 
-        if (this.state.isLoggedIn == false){
+        if (!this.state.isLoggedIn){
+            alert("login please");
             history.push('/login');
-            return;
+        }
+        else{
+            let formData = new FormData();
+            formData.append("product", product_id);
+            formData.append("customer", this.cookies.get('shopnow_id'));
+            formData.append("count", 1);
+
+
+            fetch(this.state.addtocart_url,{
+                method:'POST',
+                headers: new Headers({
+                     'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
+                   }),
+                body : formData,
+            })
+            .then(response => {
+                if (response.ok) {
+                        return response.json();
+                      } else {
+                        evt.preventDefault();
+                        var error = new Error(response.statusText);
+                        error.response = response;
+                        alert(error,response.statusText);
+                        throw error
+                      }
+            })
+            .then(responseJson => {
+                history.push('/cart');
+            })
+            .catch(e => {alert(e);});
         }
 
-        let formData = new FormData();
-        formData.append("product", product_id);
-        formData.append("customer", this.cookies.get('shopnow_id'));
-        formData.append("count", 1);
-        
-        
-        fetch(this.state.addtocart_url,{
-            method:'POST',
-            headers: new Headers({
-                 'Authorization': `JWT ${this.cookies.get("shopnow_jwt_token")}`,
-               }),
-            body : formData,
-        })
-        .then(response => {
-            if (response.ok) {
-                    return response.json();
-                  } else {
-                    evt.preventDefault();
-                    var error = new Error(response.statusText);
-                    error.response = response;
-                    alert(error,response.statusText);
-                    throw error
-                  }
-        })
-        .then(responseJson => {
-            history.push('/cart');
-        })
-        .catch(e => {alert(e);});
         
     }
     
