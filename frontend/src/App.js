@@ -152,7 +152,12 @@ class App extends Component {
     
     addToCart = (evt, product_id, history) =>{
         evt.preventDefault();
-        
+
+        if (this.state.isLoggedIn == false){
+            history.push('/login');
+            return;
+        }
+
         let formData = new FormData();
         formData.append("product", product_id);
         formData.append("customer", this.cookies.get('shopnow_id'));
