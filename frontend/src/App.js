@@ -152,9 +152,9 @@ class App extends Component {
     
     addToCart = (evt, product_id, history) =>{
         evt.preventDefault();
-
+        alert(this.state.isLoggedIn);
         if (!this.state.isLoggedIn){
-            alert("login please");
+
             history.push('/login');
         }
         else{
